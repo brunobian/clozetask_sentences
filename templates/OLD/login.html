@@ -1,0 +1,62 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		{% bootstrap_css %}
+		{% bootstrap_javascript %}
+		
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="{% static "css/signin.css" %}"  rel="stylesheet">
+
+<title>Experimento de completar palabras (v.2015)</title>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-48128532-1']);
+  _gaq.push(['_setDomainName', 'exp.dc.uba.ar']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+
+<body id="main_body">
+	<div class="container">
+
+		<div class="jumbotron">
+			<h2 class="form-signin-heading">Experimento de completar palabras</h2>
+            <p>¡Bienvenido a la versión 2015 de nuestro experimento!</p><p>Ingresá una dirección de e-mail válida, tu edad y tu género para empezar a participar. </p>
+	        <div class="row">
+	    		<div class="col-sm-4"></div> 
+	    		<div class="col-sm-4">
+	        <form class="form-signin" method="get" action='trial/'>
+	                <input type="email" class="form-control" name="email" placeholder="Email" required>
+	                <input type="text" pattern="[0-9]{2}" class="form-control" name="edad"  placeholder="Edad" required>				
+					<select name="gender" class="form-control">
+					<option value="MAS">Masculino</option>
+					<option value="FEM">Femenino</option> </select>                
+	
+	                <input class="btn btn-lg btn-primary btn-block" id="input_iniciar_trial" style ="margin-top:20px" type="submit" value="Empezar experimento" >
+	        </form>	
+	        	</div>
+	        	<div class="col-sm-4"></div> 
+	        </div>	
+        </div>
+    </div>	
+
+<div id="log" align=center style="display:none; margin:auto"><br><hr>
+Log debuggin :</div>
+	
+</body>
+</html>

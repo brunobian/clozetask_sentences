@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+<link href="{% static "css/font-awesome.css" %}" rel="stylesheet">
+<link href="{% static "css/bootstrap-social.css" %}" rel="stylesheet">
+<link href="{% static "css/signin.css" %}" rel="stylesheet">
+
+<title>Experimento de completar palabras (V2020)</title>
+
+</head>
+
+
+<body id="main_body" class="container">
+
+
+    <div id="form_container">
+        <form class="form-signin" method="get" action='trial/'>
+			<div class="navbar navbar-inverse navbar-static-top fondo" role="navigation"> 
+				<div style="margin-top:5%;margin-bottom:2%;margin-left:10%;margin-right:10%;">
+					<h2 class="form-signin-heading">Experimento de completar palabras (Versión 2020)</h2>
+					<p>¡Bienvenido a este pequño experimento! Ingresá una dirección de e-mail válida, 
+						tu edad y tu género para empezar a participar.</p>
+					<br>
+					<input type="email" class="form-control" name="email" placeholder="Email" required>
+					<input type="text" pattern="[0-9]{2}" class="form-control" name="edad"  placeholder="Edad" required>				
+					<select name="gender" class="form-control input-lg" >
+					<option value="MAS">Masculino</option>
+					<option value="FEM">Femenino</option>
+					<option value="OTR">Otro</option> </select>                
+
+					<input class="btn btn-lg btn-loggin btn-block" id="input_iniciar_trial" style ="margin-top:20px" type="submit" value="Empezar experimento" >
+
+				</div>
+			</div>
+        </form>	
+    </div>	
+
+
+<div id="log" align=center style="display:none; margin:auto"><br><hr>
+Log debuggin :</div>
+	
+</body></html>

@@ -1,0 +1,669 @@
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		{% bootstrap_css %}
+		{% bootstrap_javascript %}
+		
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="{% static "js/jquery.js" %}" type="text/javascript"></script>
+	<script src="{% static "js/jquery.cookie.js" %}" type="text/javascript"></script>
+	<link href="{% static "css/signin.css" %}"  rel="stylesheet">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+	<title>Experimento de completar palabras</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48128532-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+	
+function ismobile() { 
+	//return false
+		 if( navigator.userAgent.match(/Android/i)
+		 || navigator.userAgent.match(/webOS/i)
+		 || navigator.userAgent.match(/iPhone/i)
+		 || navigator.userAgent.match(/iPad/i)
+		 || navigator.userAgent.match(/iPod/i)
+		 || navigator.userAgent.match(/BlackBerry/i)
+		 || navigator.userAgent.match(/Windows Phone/i)
+		 ){
+			return true;
+		  }
+		 else {
+			return false;
+		  }
+}
+
+
+function trial_default() {
+	{% for indice in cant_textos %}
+		$("#texto{{indice}}").hide();
+	{% endfor %}
+	$("#texto").hide();
+	$("#enviando").hide();
+	$("#boton_siguiente_trial").hide();
+    $("#log").hide()
+	$("#log").html(  $("#log").html() + "<br> Se llamo: trial_default");
+	$("#cerrar").hide(); 
+	$("#formulario_mobile").hide();
+	$("#descanso").hide();
+	$("#rectangulo").hide();
+
+	if (ismobile()===true) {
+		$("#formulario_mobile").show();
+		$("#formulario_segundo_inicio").hide();            
+		$("#formulario_inicio").hide();            
+		$("#formulario_preguntas").hide(); 
+		$("#boton_sin_preguntas").hide(); 
+		$("#formulario_inicio").hide();            
+		$("#boton_sin_preguntas").hide(); 
+		$("#formulario_preguntas").hide();
+		$("#formulario_segundo_inicio").hide();  
+		$("#logo").hide();  
+		$("#descanso").hide();
+	}else {
+		if ({{initial_trial}}) {
+				$("#formulario_segundo_inicio").show();            
+				$("#formulario_inicio").show();            
+				$("#formulario_preguntas").hide();
+				$("#descanso").hide();
+				$("#boton_sin_preguntas").show(); 
+					{% if primer_trial %}
+						$("#descanso").hide();
+						$("#formulario_inicio").show();            
+						$("#boton_sin_preguntas").hide(); 
+						$("#formulario_preguntas").show();
+						$("#formulario_segundo_inicio").hide(); 
+						//~ $("#boton_sin_preguntas").show(); 
+					{% endif %}
+		} else {
+					{% if descanso and primer_pausa %}
+						$("#descanso").show();
+						$("#formulario_inicio").hide();            
+						$("#boton_sin_preguntas").hide(); 
+						$("#formulario_preguntas").hide();
+						$("#formulario_segundo_inicio").hide(); 
+						$("#boton_salir_pausa").focus();
+					{% else %}
+						trial_inicio();
+					{% endif %}
+					}
+		}
+}
+//Inicio tiempo
+function trial_inicio(){
+	//Cargo tiempo inicial
+	var currentDate = new Date();	
+	tiempo_inicial = currentDate.getTime();	
+	
+	//Borro boton de inicio
+	$("#formulario_inicio").html("");
+	$("#formulario_preguntas").html("");
+	$("#formulario_segundo_inicio").html("");
+    $("#formulario_preguntas").html(""); 
+    $("#formulario_inicio").html(""); 
+	$("#descanso").html("");
+	$("#texto").show()
+	$("#rectangulo").hide()
+	
+	//Muestro texto, llevandolo al texto_acumulado
+	$("#texto_acumulado").html(  $("#texto0").html() )
+	
+	//Pongo ahi el foco
+	$("#texto0_input").focus()
+	
+	
+	//Cargo log
+        $("#log").hide()
+	$("#log").html(  $("#log").html() + "<br> Se llamo: trial_inicio")
+	$("#log").html(  $("#log").html() + "<br> Tiempo inicial:"+tiempo_inicial)
+
+	}
+
+	
+function trial_inicio_preguntas(){
+    if ( document.forms[0].native_language.value == "" || 
+		 document.forms[0].country.value == "" || 
+		 document.forms[0].schooling.value == "" ||
+		 document.forms[0].reading_language.value == "" ||
+		 document.forms[0].books.value == "" ||
+		 document.forms[0].work_reading.value == "" ||
+		 document.forms[0].computer_reading.value == "" ||
+		 document.forms[0].dexterity.value == "" ||
+		 document.forms[0].source.value == "" ||
+		 document.forms[0].other_experiments.value == ""
+		 )
+    {alert ( "Por favor, respondé las preguntas faltantes" );}
+    else {
+
+    $.get("subirInformation/", {
+        'email': '{{usuario}}',
+        'native_language': document.forms[0].native_language.value,
+        'country': document.forms[0].country.value,
+        'schooling':document.forms[0].schooling.value,
+        'reading_language': document.forms[0].reading_language.value,
+        'books': document.forms[0].books.value,
+        'work_reading_language': document.forms[0].work_reading_language.value,
+        'work_reading': document.forms[0].work_reading.value,
+        'computer_reading': document.forms[0].computer_reading.value,
+        'dexterity': document.forms[0].dexterity.value,
+        'source': document.forms[0].source.value,
+        'other_experiments': document.forms[0].other_experiments.value,
+        });
+    trial_inicio();
+    }
+}
+function arreglo_valor_inputs(texto_num){
+	//cargo las palabras posta, hasta donde llego a completar
+	
+	{% for indice_palabra in secuencia_posta %}
+		if ({{indice_palabra.0}} <= texto_num) 
+			$("#texto{{indice_palabra.0}}_input").val("{{indice_palabra.1}}");
+	{% endfor %}
+}
+
+function cerrar(){
+	$("#texto").hide();
+	$("#enviando").hide();
+	$("#boton_siguiente_trial").hide();
+	$("#log-publico").hide();
+	$("#cerrar").show();
+	
+}
+
+function texto_input_cambio(event,texto_num){
+	
+	//Cargo letra
+	if (document.all){
+		letra = event.keyCode
+	}
+	else{
+		letra = event.which
+	}
+	
+	//Apreto enter
+	if (letra==13){
+		
+		palabra = $("#texto"+texto_num+"_input").val();
+		tam_palabra = $.trim(palabra).length;
+		
+		if (palabra.match(/\s/g)){
+			alert('En tu respuesta hay un espacio. Recordá que sólo se puede completar con UNA sola palabra');
+		}
+		
+		//Cargo palabra nueva
+		palabras_valor[texto_num] = palabra;
+		
+		//Sigo adentro del texto
+		if (parseInt(texto_num)<= {{cant_pal}}  && tam_palabra>0){
+			
+			//Cargo nuevo tiempo para la palabra nueva
+			var currentDate = new Date();	
+			tiempos[texto_num]= currentDate.getTime();	
+
+			//Cargo log
+			$("#log").html(  $("#log").html() + "<br> Enter en texto_num: " +texto_num + " con valor:"+palabra+" tiempo:"+tiempos[texto_num])
+
+			{% for indice_palabra in secuencia_posta %}
+                            if ({{indice_palabra.0}} <= texto_num) 
+								palabra_original = "{{indice_palabra.1}}";
+            {% endfor %}
+                       
+            porcentaje_avance = parseInt(100*(texto_num)/{{cant_pal}})
+			$("#log-publico").html( "<b> Porcentaje Avanzado: </b>" +  porcentaje_avance + "%"  + "<br/>");
+			
+			//Deshabilitamos lo que paso
+			$("#texto"+texto_num+"_input").hide();
+			//~ $("#texto"+texto_num+"_input").prop('disabled', true);
+			
+			//Muestro texto, llevandolo al texto_acumulado y le doy foco al nuevo input
+			nuevo_indice = parseInt(texto_num)+1;
+						
+			//Cargo el contenido a agregar (todo eso lo hago para que los divs no pongan espacios)
+			contenido_a_agregar= $("#texto"+nuevo_indice).html();
+	
+			//Borro el texto que acabo de copiar para poner en otro lado
+			$("#texto"+texto_num).html("");
+				
+			//Pongo el contenido que estaba en el cuerpo de texto_acumulado
+			$('#texto_acumulado').html(function(index,html){
+				return html.replace("<strong>",'');
+			});
+			$("#texto_acumulado").html($("#texto_acumulado").html() +  '<strong>' +  contenido_a_agregar + "</strong>"  );
+			
+			//Le recargo el valor del input
+			$("#texto"+texto_num+"_input").val(palabra);
+						
+			//Pongo foco en el nuevo input
+			$("#texto"+nuevo_indice+"_input").focus();
+			
+			//Pongo los valores de  los inputs
+			arreglo_valor_inputs( parseInt(texto_num) );
+		}	
+
+		// Envio la primer palabra para que la DB sepa desde temprano que ya se usó esta oracion
+		// Este parche soluciona el problema de que el query enviado sólo en la ultima palabra llegaba tarde
+		if (parseInt(texto_num) == 0){
+			//Envio datos a la BD
+			$.get("subir/", 
+						{
+						   'palabras': palabras_valor,
+						   'tiempos': tiempos ,
+						   'email': '{{usuario}}',
+						   'initTime': tiempo_inicial,
+						   'trial': {{trial}},
+						}
+			);
+
+			//Envio datos a la BD
+			$("#log").html(  $("#log").html() + "<br>Envio datos BD")
+		}
+		
+		//Completo ultimo input
+		if (parseInt(texto_num)=={{cant_pal}}  && tam_palabra>0) {
+			//Envio datos a la BD
+			$.get("subir/", 
+						{
+						   'palabras': palabras_valor,
+						   'tiempos': tiempos ,
+						   'email': '{{usuario}}',
+						   'initTime': tiempo_inicial,
+						   'trial': {{trial}},
+						}
+			);
+
+			//Envio datos a la BD
+			$("#log").html(  $("#log").html() + "<br>Envio datos BD")
+			
+			//Habilito boton para siguiente trial
+			$("#log").html(  $("#log").html() + "<br>Habilito boton para siguiente trial")
+
+			$("#enviando").show();
+			
+			// Espero 2 segundos y muestro los botones
+			setTimeout(
+					function(){
+							$("#enviando").hide();
+							$("#boton_siguiente_trial").show();
+							$("#siguiente_trial").focus();
+							},
+					2000)
+		}
+	}
+}
+
+function botones(){
+	//Muestror boton siguiente trial y terminar
+
+}
+
+//Inicio
+tiempo_inicial = -1;
+cant_palabras = {{cant_pal}}
+
+//palabras
+var palabras_valor = new Array();
+var tiempos = new Array();
+
+$().ready(trial_default)
+
+</script>
+</head>
+
+<body id="main_body" >
+	
+	
+	<!-- Header	-->
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin-top:10px;margin-left:10px;margin-rigth:20px;border-radius:8px;width:98%; background-color:#004949">
+		<table style="width:100%">
+			<div class="container">
+				<!-- Primera columna (Título) -->
+				<td style="width:33%"> 
+					<div class="navbar-header" align=left style="margin-left:20%;margin-right:20%">
+						<a href="#"><h3><font color="white">Experimento de completar palabras</h3></font></a>
+					</div>
+				</td>
+				<!-- Segunda columna (Logos) -->
+				<td style="width:33%"> 
+				   <div id="logos" align=center style="margin-top:5px;margin-bottom:5px"> 
+					   <a href="https://liaa.dc.uba.ar/"> <img src="{% static "liaa-logo-1.png" %}" height="100px"> </a>
+				   </div>
+				</td>
+				<!-- Tercera columna (Log) -->
+				<td style="width:33%;vertical-align:bottom">  
+					<div style="margin-left:20%">
+					<font color="eef2ea">
+						<p>Usuario logueado: <b>{{usuario}}</b></p>
+						<p>Vas por la oración: <b id='etiqueta_trial'></b></p>
+						<p>Porcentaje completado: <b id='porcentaje'></b><b>%</b></p>
+						<p>Puntos obtenidos: <b id='puntaje'></b></p>
+
+						<script>					
+							var leidas  = parseInt({{etiqueta_trial}})+1;
+							var porcent = Math.floor(parseInt({{etiqueta_trial}})*100/208); // CAMBIAR EL DENOMINADOR DEL PORCENTAJE
+							var puntos = parseInt({{etiqueta_trial}})+(Math.floor(parseInt({{etiqueta_trial}})/10)*10);
+							
+							
+							document.getElementById('etiqueta_trial').innerHTML = leidas;
+							document.getElementById('porcentaje').innerHTML = porcent;
+							document.getElementById('puntaje').innerHTML = puntos;
+
+						</script>
+					</font>
+					</div>
+				</td>
+			</div>
+		</table>
+	</div>
+	
+
+	
+	
+        {%if finalizado%} 
+			<div id="fin" class="container" align= "center" style="margin-top:150px;">
+				<h3>¡¡Ya no te quedan más oraciones!!</h3>
+				<br>
+                <p>Gracias por completar todo el experimento. </p>
+				<br>	
+				<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
+<!--
+				<p>Sitio Web del <a href="http://neuro.org.ar/?q=es">Laboratorio de Neurociencia Integrativa</a></p>
+				<p>O visitanos en <a href="https://facebook.com/neurointegrativa"> Facebook</a> para enterarte de las novedades</p>	
+-->
+				<br>
+            </div>
+		{% else %}
+<!--			Margin-top para que todo se muestre por debajo del header    -->
+			<div style="margin-top:120px"> </div>
+
+<!--			Margin-top para que nada se muestre en el flahseo    -->
+			<div id="rectangulo" style="margin-top:1000000px"></div>
+			
+			<div class="container" align=left style="margin-left:150px;">
+				<div id="formulario_segundo_inicio">
+					<h3>¡¡Gracias por volver!!</h3>
+					<p>Te estabamos esperando para que sigas completando oraciones.</p>
+				</div>
+			</div>
+
+		    <div class="container" align=LEFT style="margin-left:150px;" >			
+            <div id="formulario_inicio" style="width:85%">
+                <h3>Objetivo del experimento</h3>
+                <ul>
+					<li>Nuestro objetivo es estimar la predictibilidad de las palabra dado el contexto en el que se encuadran.</li>
+					<li>Para hacerlo necesitamos que mucha gente complete algunas oraciones con las palabras que creen probables. </li>
+                </ul>                
+                
+				<h3>Instrucciones</h3>
+				<ul>
+					<li>Durante este experimento vas a leer oraciones. </li>
+					<li>En cada oración se va a mostrar sólo la primera palabra y luego vas a tener que completar el resto, <b>de a una</b>. </li>
+					<li><b>Siempre</b> se completa con <b>una sola</b> palabra.</li>
+					<li>Esa palabra debe ser aquella que te suene más factible según el contexto (poné la primera que se te venga a la cabeza).</li>
+					<li>Luego de escribir la palabra, apretá <i>ENTER</i> para poder seguir con la próxima. </li>
+					<li>Vas a notar que hay palabras muy predecibles y palabras muy poco predecibles.</li>
+					<li>No te preocupes si la palabra que completaste no es igual a la original, es parte de la naturaleza que intentamos describir y explicar con este experimento.</li>
+                </ul>
+                
+				<h3>Premios</h3>
+				<ul>
+					<li>¡La participación en este experimento tiene recompensa!</li>
+					<li>Los Viernes 25 de Mayo y 8 de Junio realizaremos sorteos por órdenes de compra.</li>
+					<li>Mientras más oraciones completás, más chances tenés de ganar:</li>
+					<ul>
+						<li>Cada oración que completes suma 1 punto.</li>
+						<li>Además, cada 10 oraciones tendrás 10 puntos extra.</li>
+						<li><b>¡¡Completar el experimento duplica las chances!!</b></li>
+					</ul>
+				</ul>
+				
+				<h3>Aviso importante</h3>
+				<ul>
+					<li><i><b>¡Esto no es una competencia!</b></i> No hay palabras correctas o incorrectas, deberás completar con la palabra que te parezca que va a continuación según el contexto en el que estás leyendo. 
+                Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos.</p></li>
+				</ul>
+					
+<!--
+               <p>Este experimento es parte fundamental de la investi un trabajo conjunto entre el <a href="http://neuro.org.ar/?q=es"> Laboratorio de Neurociencia Integrativa </a> (FCEyN - UBA) y la Universidad Nacional del Sur, te pedimos que lo hagas a conciencia, concentrándote en cada oración que leés.</p>
+-->
+
+
+                <div id="formulario_preguntas" >
+                    <form id="frmPreguntas" action="javascript:trial_inicio_preguntas()" >
+                    <h3>Cuestionario</h3>
+
+                    <p>Antes de empezar te vamos a pedir que completes unas preguntas por única vez que nos servirán a la hora de analizar los datos. Una vez finalizada la encuesta podrás empezar con el experimento</p>
+
+                    <p><label class="description">Ingrese su lengua nativa: {{ form.native_language }}</label><br></p>	
+                    <p><label class="description">Ingrese su pais de Nacimiento {{ form.country }} </label><br></p>
+                    <p><label class="description">Nivel educativo maximo alcanzado/en curso {{ form.schooling }} </label><br></p>
+                    <p><label class="description">¿Cuántos libros de Literatura General lee por año? {{ form.books }} </label><br> </p> 
+                    <p><label class="description">¿En qué idioma lee regularmente Literatura General? {{form.reading_language }} </label><br></p>
+                    <p><label class="description">¿Lee por trabajo? {{ form.work_reading }} </label><br> </p> 
+                    <p><label class="description">¿En qué idioma lee regularmente por trabajo? (No obligatoria	) {{form.work_reading_language }} </label><br></p>
+                    <p><label class="description">¿Lee habitualmente en la computadora? {{ form.computer_reading }} </label><br> </p> 
+                    <p><label class="description">Para escribir, usted es: {{ form.dexterity }} </label><br> </p> 
+                    <p><label class="description">¿Cómo llegó al experimento? {{ form.source }} </label><br> </p> 
+                    <p><label class="description">¿Queres participar de otros experimentos parecidos? {{ form.other_experiments }} </label><br> </p> 
+					<br>
+					<br>
+					
+					Antes de comenzar el experimento lee el siguiente texto:
+					<div style="height:180px;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+						<h4>CONSENTIMIENTO INFORMADO PARA EXPERIMENTOS MASIVOS</h4>
+
+						<p>Por favor, lea la siguiente información antes de decidir participar de esta actividad:</p>
+
+						<p><b>¿Cuál es el objetivo de esta investigación?</b> El objetivo de esta investigación es profundizar el conocimiento sobre la complejidad y dinámica de procesos cognitivos.</p>
+						<p><b>¿Qué tendré que hacer si decido participar de esta actividad?</b> Primero, se le solicitará que complete algunos datos personales (por ejemplo, edad, género, si estudia y/o trabaja, su dirección de correo electrónico, lugar de nacimiento, lugar de residencia). Luego, comenzarán las actividades relacionadas con la investigación donde deberá realizar distintas tareas visuales y/o sonoras utilizando el teclado, pantalla táctil y/o el mouse de su computadora o dispositivo móvil. Una vez finalizada la última tarea, se le harán algunas preguntas de elección múltiple relacionadas con las tareas previas.  </p>
+						<p><b>¿Cuánto tiempo requiere la actividad?</b> La actividad puede realizarse en aproximadamente 30 minutos (incluyendo todas las tareas y las preguntas accesorias), pudiendo ser realizada hasta 4 veces. </p>
+						<p><b>¿Qué ocurre si me arrepiento y deseo abandonar la actividad antes de completarla? </b> Su participación en esta actividad es completamente voluntaria y puede abandonarla en el momento que desee (cerrando el programa que está utilizando para navegar por internet). </p>
+						<p><b>¿Cuáles son los riesgos asociados a la participación en esta actividad? </b> No esperamos ningún riesgo asociado a su participación. Aún así, recuerde que su participación es voluntaria y que podrá abandonar la actividad cuando lo desee. </p>
+						<p><b>¿De qué manera será utilizada la información que yo comparta con ustedes? </b> La información que usted nos brinde no será compartida con nadie y será tratada de manera confidencial y anónima.</p>
+						<p><b>¿Cómo puedo contactarme con los investigadores responsables para hacerles consultas, comentarios, etc. relacionados con la investigación?</b> Si tiene alguna pregunta o comentario puede contactar al investigador responsable de este proyecto: </p>
+						<p>Mariano Sigman (Director del Laboratorio de Neurociencia, UTDT) al correo electrónico neurointegrativa@gmail.com.</p>
+						<p><b>¿En qué proyecto está enmarcada esta investigación? </b>Esta investigación forma parte del proyecto “Complejidad y dinámica de procesos cognitivos: Estudios de alta resolución del flujo de información cortical durante una tarea cognitiva”.</p>
+						<p><b>¿A quién debo contactar si tengo alguna queja o quiero reportar algún problema relacionado con la investigación? </b>Si tiene alguna queja o quiere reportar algún problema asociado con la investigación, por favor contáctese con: </p> 
+						<p>Comité de Ética en Investigación, Centro de Educación Médica e Investigaciones Clínicas “Norberto Quirno”. Hospital Universitario sede Saavedra, Av. Galván 4102. Ciudad de Buenos Aires, (C1425DQK) - República Argentina. Tel: 5299-0100, interno 2879. E-mail: pechavarria@cemic.edu.ar</p>
+
+						HACIENDO CLICK EN <b>EMPEZAR EXPERIMENTO</b>, ACEPTO PARTICIPAR DE MANERA COMPLETAMENTE VOLUNTARIA EN ESTA ACTIVIDAD, ENTENDIENDO TANTO EL OBJETIVO DE LA INVESTIGACIÓN COMO LA DESCRIPCIÓN DE LAS TAREAS A REALIZAR. ASIMISMO, CERTIFICO QUE SOY MAYOR DE 18 AÑOS Y QUE COMPRENDO QUE TENGO LA LIBERTAD DE ABANDONAR LA ACTIVIDAD EN CUALQUIER MOMENTO QUE LO DESEE.				
+						</div>
+					<br>
+                    <input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para Empezar Experimento" >
+                    </form> 
+                </div>	
+                
+					<div id="boton_sin_preguntas" align=center  style ="margin-top:5%; ">
+						<form action="javascript:trial_inicio()" align=center>
+							<input id="input_iniciar_trial" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para Empezar Experimento">
+						</form>	
+					<br>
+					</div>					
+
+					<br>
+					<div align=center><p>
+					¡Gracias por tu participación!
+					</p>
+					<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
+<!--
+					<p>Sitio Web del <a href="http://neuro.org.ar/?q=es">Laboratorio de Neurociencia Integrativa</a></p>
+					<p>O visitanos en <a href="https://facebook.com/neurointegrativa"> Facebook</a> para enterarte de las novedades</p>
+-->
+					</div>
+
+
+				<br>
+				</div>
+            </div>
+
+		<!-- Empiezo a mostrar los textos -->
+		<font face="Georgia, Garamond, Serif" size="4">
+			<form name="texto_inputs" >
+				<div class="container" id="texto" style ="position:relative; margin-top:2%; width:900px ; margin:auto; text-justify:inter-word;">
+					<div id="texto_acumulado"></div>
+						{% for texto in texto_con_input %}
+					<div id="texto{{texto.1}}" >
+						{% for subtexto in texto.0%}
+							{% if forloop.last %}
+								{{subtexto}}
+							{%else %}
+								{{subtexto}}
+								<br>
+							{% endif %}
+						{% endfor%}
+						<input class="form-palabra" id="texto{{texto.1}}_input" placeholder="Ingrese una palabra" title="Recuerde que debe ingresar UNA SOLA palabra y que debe ser aquella que le resulte más factible según el contexto" size=19px onkeyup="javascript:texto_input_cambio(event,'{{texto.1}}')" size=> 
+
+					</div>	
+					{% endfor%}
+					<div id="texto{{texto_final.1}}">
+						{% for subtexto in texto_final.0%}
+							{% if forloop.last %}
+								{{subtexto}}
+							{%else %}
+								{{subtexto}}
+							{% endif %}
+						{% endfor%}    
+					</div>
+				</div>
+			</form>
+		</font>
+		
+		<!-- Cartel "Enviando oracion" -->
+		<div id="enviando"  align="center" style="margin-top:5%">
+			<div align="center" style="width:50%; background-color:#961e1e; border-color:#961e1e; height:90%" class="btn btn-lg btn-primary btn-block" >
+			Enviando respuetas 
+			</div>
+		</div>
+
+
+		<!-- Boton siguiente oracion -->
+		<div id="boton_siguiente_trial"  align="center" style="margin-top:5%">
+			<div align="center" style="width:50%">
+					 <form method="get" action="" >
+						<input id="siguiente_trial" class="btn btn-lg btn-primary btn-block"  type="submit"  value="Próxima oración">
+						<input name="initial_trial" value="false" type="hidden">
+						<input name="primer_pausa" value="True" type="hidden">
+						<input name="email" value="{{usuario}}" type="hidden">
+					 </form> 
+			</div>
+		</div>
+
+		<!-- Si entra desde movil -->
+		<div class="container" align=left>
+		<div id="formulario_mobile">
+			<h3>¡¡Gracias por entrar a nuestro experimento!!</h3>
+			<p>Te agradecemos por entrar. Sin embargo detectamos que estás ingresando desde un dispositivo móvil. 
+			   Este <b>experimento</b> necesita que lo completes sin utilizar el teclado predictivo que tienen los celulares. 
+			   Además necesitamos que los leas cómodamente. Por eso te pedimos que vuelvas a entrar nuevamente desde una computadora.</p>
+			<br>
+<!--
+				<div>
+				 <form action="/bruno/ganadores/" target="_blank">
+					<input id="input_ganadores" class="btn btn-lg btn-trial btn-block" type="submit"  value="Ver Ganadores">
+				 </form>	
+				</div>
+-->
+			<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
+<!--
+			<p>Sitio Web del <a href="http://neuro.org.ar/?q=es">Laboratorio de Neurociencia Integrativa</a></p>
+			<p>O visitanos en <a href="https://facebook.com/neurointegrativa"> Facebook</a> para enterarte de las novedades</p>	
+-->
+		</div>
+		</div>
+		
+		<!-- Descanso -->
+		<div class="container" align=center id="descanso">
+			<h3>Esto es un descanso</h3> <br>
+			<p>Venís bien, cada vez falta menos. Aprovechá y descasá un poco antes de seguir. </p> <br>
+			<div id="seguir"  align="center" style="margin-top:5%">
+				<div align="center">
+					 <form method="get" action="javascript:trial_inicio()" >
+						<input id="boton_salir_pausa" class="btn btn-lg btn-trial btn-block"  type="submit"  value="Volver al Experimento">
+						<input name="initial_trial" value="false" type="hidden">
+						<input name="primer_pausa" value="False" type="hidden">
+						<input name="email" value="{{usuario}}" type="hidden">
+					 </form> 
+				</div>
+			</div>
+		</div>
+		
+		{%endif%}
+
+
+
+<br>
+<br>
+</div>
+    
+    
+<div id="cerrar" align="center" class="container" >
+	<h3>Gracias por participar de nuestro experimento</h3>
+	<br>
+	<p>Ya podés cerrar la ventana.</p>
+	<p>Recordá que podés seguir completando los textos que te quedan.</p>
+	<p>De esta forma sumarás más chances para los sorteos por las órdenes de compra. </p>
+	<br><br>
+<!--
+	<div>
+	 <form action="/bruno/ganadores/" target="_blank" >
+		<input id="input_ganadores" class="btn btn-lg btn-trial btn-block" type="submit"  value="Ver Ganadores">
+	 </form>	
+	</div>
+-->
+	<br><br>
+<div id="botones_nuevos" style="width:480px">
+<!--
+	<a class="btn btn-block btn-social btn-lg btn-facebook"  href='https://facebook.com/neurointegrativa?ref=ts&fref=ts' target="_blank" style="align:center; margin-top:8px"> 
+		<i class="fa fa-facebook"></i> Me Gusta NeuroIntegrativa en Facebook 
+	</a>
+-->
+
+	<a class="btn btn-block btn-social btn-lg btn-google-plus"  href="mailto:lena.peroni@gmail.com" style="align:center; margin-top:3px"> 
+		<i class="fa fa-envelope-o"></i> Consultas y comentarios a nuestro e-mail 
+	</a>
+
+<!--
+	<a class="btn btn-block btn-social btn-lg btn-reddit"  href='http://neuro.org.ar/' target="_blank" style="align:center;  margin-top:3px"> 
+		<i class="fa fa-cube"></i> Visitá nuestra web 
+	</a>
+-->
+</div>
+
+</div>
+
+    <br>
+
+<!--
+    <div id="log-publico" align=left style ="position:relative; margin-top:5%; width:400px ; text-align:center; text-justify:inter-word; margin:auto"><br><hr>
+    </div>
+-->
+
+
+    <div id="log" align=left style="margin:auto"><br><hr>
+    Log debuggin :</div>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

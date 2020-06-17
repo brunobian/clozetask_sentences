@@ -1,0 +1,201 @@
+{% load static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Bootstrap core CSS -->
+	<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+	<link href="{% static "css/bootstrap-social.css"%}"  rel="stylesheet">
+	<link href="{% static "css/font-awesome.css" %}" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+
+
+<title>Experimento de completar palabras</title>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-48128532-1']);
+  _gaq.push(['_setDomainName', 'exp.dc.uba.ar']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+(function () {
+$('#tabs li:eq(1) a').tab('show');
+});
+</script>
+</head>
+
+
+<body id="main_body" class="container" style="width:480px">
+
+    <div id="form_container">
+        <form class="form-winners" method="get" action='/bruno/' >
+				<h2 class="form-winners-heading">Experimento de completar palabras</h2>
+                <p class="form-winners-heading">Estos son los ganadores de los sorteos que llevamos realizados hasta el momento </p>
+                <p class="form-winners-heading">Cada uno de ellos se ganó AR$ 200 en órdenes de compra o en efectivo. </p>
+				<p>Recordá que todos los puntos ya acumulados siguen vigentes.</p>
+				<h3>Ganadores:</h3> <br>
+				
+<!-- Lista vieja de ganadores
+				<b><u>1º Sorteo</u> (17 de Febrero de 2014)</b>:   jcpovina@(...).com
+  				<br><br>
+  				<b><u>2º Sorteo</u> (05 de Marzo de 2014)</b>:  cscorticati@(...).com
+  				<br><br>
+  				<b><u>3º Sorteo</u> (18 de Marzo de 2014)</b>:   daniela15_ve@(...).com
+  				<br><br>
+  				<b><u>4º Sorteo</u> (28 de Marzo de 2014)</b>:   mechiparra@(...).com
+  				<br><br>
+  				<b><u>5º Sorteo</u> (11 de Abril de 2014)</b>:   gisela_sa_yo@(...).com
+				<br><br>
+  				<b><u>6º Sorteo</u> (25 de Abril de 2014)</b>:   ernesto.gulich@(...).com
+				<br><br>
+  				<b><u>7º Sorteo</u> (08 de Mayo de 2014)</b>: soy@(...).com
+				<br><br>
+  				<b><u>8º Sorteo</u> (23 de Mayo de 2014)</b>: robertorossetti14@(...).com.ar 
+				<br><br>
+  				<b><u>Sorteo Especial</u> (30 de Mayo de 2014)</b>: valeriaccolombo@(...).com
+				<br><br>
+  				<b><u>9º Sorteo</u> (06 de Junio de 2014)</b>: anadellarciprete@(...).com.ar
+				<br><br>
+				<b><u>10º Sorteo</u> (20 de Junio de 2014)</b>: mndiguilmi@(...).com
+				<br><br>
+				<b><u>11º Sorteo</u> (04 de Julio de 2014)</b>: solesartori@(...).com
+				<br><br>
+				<b><u>12º Sorteo</u> (30 de Julio de 2014)</b>: cyn.fraysse@(...).com
+				<br><br>				
+				<b><u>13º Sorteo</u> (15 de Agosto de 2014)</b>: valeriakelly@(...).com
+				<br><br>
+				<b><u>14º Sorteo</u> (30  de Agosto de 2014)</b>:  milicor2005@(...).com
+                                <br><br>
+				<b><u>15º Sorteo</u> (15  de Septiembre de 2014)</b>: m.agustinavilla@(...).com
+				<br><br>
+  					
+
+-->
+
+<!-- Pestañas Ganadores -->
+<div> 
+<div id="content" style="width:100%">
+	
+    <ul id="tabs1" class="nav nav-tabs" data-tabs="tabs">
+        <li><a href="#Febrero" data-toggle="tab"><h4>Febrero</h4></a></li>
+        <li><a href="#Marzo" data-toggle="tab"><h4>Marzo</h4></a></li>
+        <li><a href="#Abril" data-toggle="tab"><h4>Abril &nbsp &nbsp </h4></a></li>
+        <li><a href="#Mayo" data-toggle="tab"><h4>  Mayo</h4></a></li>
+    </ul>
+    <br>  
+    <div id="my-tab-content1" class="tab-content">
+        <div class="tab-pane fade" id="Febrero">
+           <b><u>1º Sorteo</u> (17 de Febrero de 2014)</b>:   jcpovina@(...).com 
+        </div>
+        
+        <div class="tab-pane fade" id="Marzo">
+  				<b><u>2º Sorteo</u> (05 de Marzo de 2014)</b>:  cscorticati@(...).com
+  				<br><br>
+  				<b><u>3º Sorteo</u> (18 de Marzo de 2014)</b>:   daniela15_ve@(...).com
+  				<br><br>
+  				<b><u>4º Sorteo</u> (28 de Marzo de 2014)</b>:   mechiparra@(...).com
+        </div>
+        
+        <div class="tab-pane fade" id="Abril">
+  				<b><u>5º Sorteo</u> (11 de Abril de 2014)</b>:   gisela_sa_yo@(...).com
+				<br><br>
+  				<b><u>6º Sorteo</u> (25 de Abril de 2014)</b>:   ernesto.gulich@(...).com
+        </div>
+        
+        <div class="tab-pane fade" id="Mayo">
+  				<b><u>7º Sorteo</u> (08 de Mayo de 2014)</b>: soy@(...).com
+				<br><br>
+  				<b><u>8º Sorteo</u> (23 de Mayo de 2014)</b>: robertorossetti14@(...).com.ar
+  								<br><br>
+  				<b><u>Sorteo Especial</u> (30 de Mayo de 2014)</b>: valeriaccolombo@(...).com
+        </div>
+  
+    <ul id="tabs2" class="nav nav-tabs" data-tabs="tabs">
+		<li><a href="#Junio" data-toggle="tab"><h4>Junio &nbsp &nbsp </h4></a></li> 
+        <li><a href="#Julio" data-toggle="tab"><h4>Julio &nbsp </h4></a></li>
+        <li  class="active"><a href="#Agosto" data-toggle="tab"><h4>Agosto</h4></a></li>
+        <li><a href="#Septiembre" data-toggle="tab"><h4>Septiembre</h4></a></li>
+    </ul>
+    <br>  
+        <div class="tab-pane fade" id="Junio">
+  				<b><u>9º Sorteo</u> (06 de Junio de 2014)</b>: anadellarciprete@(...).com.ar
+				<br><br>
+				<b><u>10º Sorteo</u> (20 de Junio de 2014)</b>: mndiguilmi@(...).com
+        </div>
+        
+        <div class="tab-pane fade" id="Julio">
+				<b><u>11º Sorteo</u> (04 de Julio de 2014)</b>: solesartori@(...).com
+				<br><br>
+				<b><u>12º Sorteo</u> (30 de Julio de 2014)</b>: cyn.fraysse@(...).com
+        </div>
+        
+        <div class="tab-pane fade active" id="Agosto">
+				<b><u>13º Sorteo</u> (15 de Agosto de 2014)</b>: valeriakelly@(...).com
+				<br><br>
+				<b><u>14º Sorteo</u> (30 de Agosto de 2014)</b>: milicor2005@(...).com
+
+        </div>
+        
+        <div class="tab-pane fade" id="Septiembre">
+				<b><u>15º Sorteo</u> (15 de Septiembre de 2014)</b>: m.agustinavilla@(...).com
+                                <br><br>
+                         
+
+        </div>
+        </div>
+        
+</div>
+</div>
+ 
+ 
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+    });
+</script>    
+</div>  
+				<br> <br>
+
+<!--            <p style="border: ridge #428bca 2px; align: center; width:480px">  <b>ATENCIÓN: El 30 de Mayo vamos a realizar un sorteo exclusivo por AR$400 para los usuarios que (al momento del sorteo) tengan 5 o más textos completados</b></p> -->
+                <input class="btn btn-lg btn-ganadores btn-block" id="input_iniciar_trial" type="submit" value="Ir al experimento" >
+
+<!-- Botones Nuevos	-->
+				<a class="btn btn-block btn-social btn-lg btn-facebook"  href='https://facebook.com/neurointegrativa' target="_blank" style="align:center; margin-top:8px"> 
+					<i class="fa fa-facebook"></i> Me Gusta NeuroIntegrativa en Facebook 
+				</a>
+				
+				<a class="btn btn-block btn-social btn-lg btn-google-plus"  href="mailto:experimentolni@gmail.com" style="align:center; margin-top:3px"> 
+					<i class="fa fa-envelope-o"></i> Consultas y comentarios a nuestro e-mail 
+				</a>
+				
+				<a class="btn btn-block btn-social btn-lg btn-reddit"  href='http://neuro.org.ar/' target="_blank" style="align:center;  margin-top:3px"> 
+					<i class="fa fa-cube"></i> Visitá nuestra web 
+				</a>
+
+<!-- Links viejos
+				<p>Consultas y comentarios: <a href="mailto:experimentolni@gmail.com">experimentolni@gmail.com</a></p>
+				<p>Sitio Web del <a href="http://neuro.org.ar/?q=es">Laboratorio de Neurociencia Integrativa</a></p>
+				<p>O visitanos en <a href="https://www.facebook.com/neurointegrativa"> Facebook</a> para enterarte de las novedades</p>	
+-->
+<br>
+        </form>	
+    </div>	
+
+
+<div id="log" align=center style="display:none; margin:auto"><br><hr> Log debuggin :</div>
+	
+<!-- Esto es necesario para que funcionen las pestañas-->
+<script type="text/javascript" src="{% static "js/bootstrap.js" %}" ></script>
+
+	
+</body>
+</html>

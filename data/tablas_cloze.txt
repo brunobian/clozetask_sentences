@@ -1,0 +1,30 @@
+Entrando por python
+
+conn = psycopg2.connect(dbname='oraciones', user='dfslezak', password='23571113')
+cur = conn.cursor()
+cur.execute('select * from pg_catalog.pg_tables;')
+cur.fetchall()
+
+
+
+Entrando por psql:
+> psql oraciones_2018 dfslezak
+> truncate table ********** restart identity cascade;
+ 
+ 
+donde ********** es el nombre de las tablas:
+
+truncate table cloze_information restart identity cascade;
+truncate table cloze_subject restart identity cascade;
+truncate table cloze_text  restart identity cascade;
+truncate table cloze_trial restart identity cascade;
+truncate table cloze_trialoption restart identity cascade;
+truncate table cloze_trialsequence restart identity cascade;
+
+ 
+
+ 
+ 
+
+
+
