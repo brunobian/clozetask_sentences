@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 import os
 import sys
 
-sys.path.append('/var/www/html/cloze-task-120oraciones/')
+sys.path.append('/var/www/html/clozetask_sentences/')
 
 from django.core.wsgi import get_wsgi_application
 
