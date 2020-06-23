@@ -19,7 +19,7 @@ csv_final.to_csv('textos.csv', header = False)
 with open('textos.csv', 'r') as infile:
 	    data = infile.read()
 	    data = data.replace('"', "")
-with open('textos.csv', 'w', encoding='utf-8') as outfile:	 
+with open('textos.csv', 'w', encoding='latin-1') as outfile:	 
 	    outfile.write(data)
 	    
 # genero exp.csv
