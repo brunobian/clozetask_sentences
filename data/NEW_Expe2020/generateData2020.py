@@ -1,58 +1,42 @@
-import csv
-import os
+import pandas as pd
 
-Cuent = []
-Cont = []
-with open('cuentos_filtrados.csv', newline='', encoding='utf-8' ) as cuentos:
-    for row in csv.reader(cuentos):
-        Cuent.append(row[0])
-#print(Cuent)
+# Cargo las oraciones de los cuentos y las oraciones control
+cuentos   = pd.read_csv('cuentos_filtrados_Orig.tsv', sep='\t')
+controles = pd.read_csv('cuentos_filtrados_Orig.tsv', sep='\t')
 
-with open('control.csv', newline='',encoding='latin-1') as control:
-    for row in csv.reader(control):
-        Cont.append(row[0])
-#print(Cuent)
+# Las pongo todas en un solo DF
+todas = pd.concat([cuentos, controles])
+todas = todas.reset_index()
 
-with open('textos.csv', 'w', newline='', encoding='utf-8') as csv_file:
-    writer = csv.writer(csv_file, delimiter=',')
-    
-    ind = 0
-    name = 0
-    for i in Cuent:
-        if (ind % 15) == 0:
-            name += 1
-        string = [ind, 1, name, '<p>'+i+'</p>']
-        writer.writerow(string)
-        ind=ind+1
+# selecciono solo las columnas que me interesan para textos.csv
+csv_final = todas[['Tipo', 'Cuento','Oracion']]
+# A la columna de oracion la formateo para html 
+csv_final['Oracion'] = "'<p>" + csv_final['Oracion'].astype(str) + "</p>'"
+csv_final.to_csv('textos.csv', header = False)
 
-    for i in Cont:
-        string = [ind, 0, 0, '<p>'+i+'</p>']
-        writer.writerow(string)
-        ind=ind+1
-		
+# Como pandas me guarda con comillas que no quiero, las elimino
+with open('textos.csv', 'r') as infile:
+	    data = infile.read()
+	    data = data.replace('"', "")
+with open('textos.csv', 'w') as outfile:	 
+	    outfile.write(data)
+	    
+# genero exp.csv
+oraciones = todas['Oracion']
+missing_words = []
+for i in oraciones:
+    nums = list(range(1,len(i.split())))
+    lista = ';'.join(str(x) for x in nums)
+    string = "["+ lista +"]"
+    missing_words.append(string)
 
-with open('exp.csv', 'w', newline='', encoding='utf-8') as csv_file:
-    writer = csv.writer(csv_file, delimiter=',')
-    ind = 0
-    for i in Cuent:
-        nums = list(range(1,len(i.split())))
-        lista = ';'.join(str(x) for x in nums)
-        string = [ind, ind, "["+ lista +"]"]
-        writer.writerow(string)
-        ind=ind+1
+ids = list(todas.index)
 
-    for i in Cont:
-        nums = list(range(1,len(i.split())))
-        lista = ';'.join(str(x) for x in nums)
-        string = [ind, ind, "["+ lista +"]"]
-        writer.writerow(string)
-        ind=ind+1
+exp = pd.DataFrame(list(zip(ids, missing_words)))
+exp.to_csv('exp.csv', header = False)
 
-
+# genero 72listasdeexps.csv
 with open('72listasdeexps.csv', 'w', newline='', encoding='utf-8') as csv_file:
     writer = csv.writer(csv_file, delimiter=',')
-    writer.writerow([x for x in range(0, len(Cuent+Cont))])
-
-
-
+    writer.writerow([x for x in range(0, len(oraciones))])
 
