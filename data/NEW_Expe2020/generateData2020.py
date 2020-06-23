@@ -7,12 +7,12 @@ import os
 
 Cuent = []
 Cont = []
-with open('cuentos_filtrados.csv', newline='') as cuentos:
+with open('cuentos_filtrados.csv', newline='', encoding='utf-8' ) as cuentos:
     for row in csv.reader(cuentos):
         Cuent.append(row[0])
 #print(Cuent)
 
-with open('control.csv', newline='') as control:
+with open('control.csv', newline='',encoding='latin-1') as control:
     for row in csv.reader(control):
         Cont.append(row[0])
 #print(Cuent)
