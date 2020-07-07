@@ -407,7 +407,6 @@ $().ready(trial_default)
 
 		    <div class="container" align=LEFT style="margin-left:150px;" >		
 			<div id="formulario_preguntas" >
-                    <form id="frmPreguntas" action="javascript:trial_inicio_preguntas()" >
                     <h3>Cuestionario</h3>
 
                     <p>Antes de empezar te vamos a pedir que completes unas preguntas por única vez que nos servirán a la hora de analizar los datos. Una vez finalizada la encuesta podrás empezar con el experimento</p>
@@ -445,13 +444,12 @@ $().ready(trial_default)
 						<p>Comité de Ética en Investigación, Centro de Educación Médica e Investigaciones Clínicas “Norberto Quirno”. Hospital Universitario sede Saavedra, Av. Galván 4102. Ciudad de Buenos Aires, (C1425DQK) - República Argentina. Tel: 5299-0100, interno 2879. E-mail: pechavarria@cemic.edu.ar</p>
 
 						HACIENDO CLICK EN <b>EMPEZAR EXPERIMENTO</b>, ACEPTO PARTICIPAR DE MANERA COMPLETAMENTE VOLUNTARIA EN ESTA ACTIVIDAD, ENTENDIENDO TANTO EL OBJETIVO DE LA INVESTIGACIÓN COMO LA DESCRIPCIÓN DE LAS TAREAS A REALIZAR. ASIMISMO, CERTIFICO QUE SOY MAYOR DE 18 AÑOS Y QUE COMPRENDO QUE TENGO LA LIBERTAD DE ABANDONAR LA ACTIVIDAD EN CUALQUIER MOMENTO QUE LO DESEE.				
-						</div>
+					</div>
 					<br>
 <!--
                     <input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para Empezar Experimento" >
 -->
-                    </form> 
-                </div>		
+			</div>		
 				
 				
 					
@@ -490,8 +488,10 @@ $().ready(trial_default)
 					<li><i><b>¡Esto no es una competencia!</b></i> No hay palabras correctas o incorrectas, deberás completar con la palabra que te parezca que va a continuación según el contexto en el que estás leyendo. 
                 Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos.</p></li>
 				</ul>
+				<form id="frmPreguntas" action="javascript:trial_inicio_preguntas()" >
+					<input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para Empezar Experimento" >
+				</form> 
 					
-				<input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para Empezar Experimento" >
             
 
                 
