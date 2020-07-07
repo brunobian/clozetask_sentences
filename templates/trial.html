@@ -171,7 +171,10 @@ function trial_inicio_preguntas(){
         'source': document.forms[0].source.value,
         'other_experiments': document.forms[0].other_experiments.value,
         });
-    trial_inicio();
+    //~ trial_inicio();
+		$("#formulario_inicio").show();            
+		$("#boton_sin_preguntas").show(); 
+		$("#formulario_preguntas").hide();
     }
 }
 function arreglo_valor_inputs(texto_num){
