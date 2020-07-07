@@ -363,12 +363,10 @@ $().ready(trial_default)
 							var leidas  = parseInt({{etiqueta_trial}})+1;
 							var porcent = Math.floor(parseInt({{etiqueta_trial}})*100/208); // CAMBIAR EL DENOMINADOR DEL PORCENTAJE
 							var puntos = parseInt({{etiqueta_trial}})+(Math.floor(parseInt({{etiqueta_trial}})/10)*10);
-							
-							
+											
 							document.getElementById('etiqueta_trial').innerHTML = leidas;
-							document.getElementById('porcentaje').innerHTML = porcent;
+							//document.getElementById('porcentaje').innerHTML = porcent;
 							document.getElementById('puntaje').innerHTML = puntos;
-
 						</script>
 					</font>
 					</div>
@@ -407,49 +405,8 @@ $().ready(trial_default)
 				</div>
 			</div>
 
-		    <div class="container" align=LEFT style="margin-left:150px;" >			
-            <div id="formulario_inicio" style="width:85%">
-                <h3>Objetivo del experimento</h3>
-                <ul>
-					<li>Nuestro objetivo es estimar la predictibilidad de las palabra dado el contexto en el que se encuadran.</li>
-					<li>Para hacerlo necesitamos que mucha gente complete algunas oraciones con las palabras que creen probables. </li>
-                </ul>                
-                
-				<h3>Instrucciones</h3>
-				<ul>
-					<li>Durante este experimento vas a leer oraciones. </li>
-					<li>En cada oración se va a mostrar sólo la primera palabra y luego vas a tener que completar el resto, <b>de a una</b>. </li>
-					<li><b>Siempre</b> se completa con <b>una sola</b> palabra.</li>
-					<li>Esa palabra debe ser aquella que te suene más factible según el contexto (poné la primera que se te venga a la cabeza).</li>
-					<li>Luego de escribir la palabra, apretá <i>ENTER</i> para poder seguir con la próxima. </li>
-					<li>Vas a notar que hay palabras muy predecibles y palabras muy poco predecibles.</li>
-					<li>No te preocupes si la palabra que completaste no es igual a la original, es parte de la naturaleza que intentamos describir y explicar con este experimento.</li>
-                </ul>
-                
-				<h3>Premios</h3>
-				<ul>
-					<li>¡La participación en este experimento tiene recompensa!</li>
-					<li>Los Viernes 25 de Mayo y 8 de Junio realizaremos sorteos por órdenes de compra.</li>
-					<li>Mientras más oraciones completás, más chances tenés de ganar:</li>
-					<ul>
-						<li>Cada oración que completes suma 1 punto.</li>
-						<li>Además, cada 10 oraciones tendrás 10 puntos extra.</li>
-						<li><b>¡¡Completar el experimento duplica las chances!!</b></li>
-					</ul>
-				</ul>
-				
-				<h3>Aviso importante</h3>
-				<ul>
-					<li><i><b>¡Esto no es una competencia!</b></i> No hay palabras correctas o incorrectas, deberás completar con la palabra que te parezca que va a continuación según el contexto en el que estás leyendo. 
-                Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos.</p></li>
-				</ul>
-					
-<!--
-               <p>Este experimento es parte fundamental de la investi un trabajo conjunto entre el <a href="http://neuro.org.ar/?q=es"> Laboratorio de Neurociencia Integrativa </a> (FCEyN - UBA) y la Universidad Nacional del Sur, te pedimos que lo hagas a conciencia, concentrándote en cada oración que leés.</p>
--->
-
-
-                <div id="formulario_preguntas" >
+		    <div class="container" align=LEFT style="margin-left:150px;" >		
+			<div id="formulario_preguntas" >
                     <form id="frmPreguntas" action="javascript:trial_inicio_preguntas()" >
                     <h3>Cuestionario</h3>
 
@@ -492,7 +449,52 @@ $().ready(trial_default)
 					<br>
                     <input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para Empezar Experimento" >
                     </form> 
-                </div>	
+                </div>		
+				
+				
+					
+            <div id="formulario_inicio" style="width:85%">
+                <h3>Objetivo del experimento</h3>
+                <ul>
+					<li>Nuestro objetivo es estimar la predictibilidad de las palabra dado el contexto en el que se encuadran.</li>
+					<li>Para hacerlo necesitamos que mucha gente complete algunas oraciones con las palabras que creen probables. </li>
+                </ul>                
+                
+				<h3>Instrucciones</h3>
+				<ul>
+					<li>Durante este experimento vas a leer oraciones. </li>
+					<li>En cada oración se va a mostrar sólo la primera palabra y luego vas a tener que completar el resto, <b>de a una</b>. </li>
+					<li><b>Siempre</b> se completa con <b>una sola</b> palabra.</li>
+					<li>Esa palabra debe ser aquella que te suene más factible según el contexto (poné la primera que se te venga a la cabeza).</li>
+					<li>Luego de escribir la palabra, apretá <i>ENTER</i> para poder seguir con la próxima. </li>
+					<li>Vas a notar que hay palabras muy predecibles y palabras muy poco predecibles.</li>
+					<li>No te preocupes si la palabra que completaste no es igual a la original, es parte de la naturaleza que intentamos describir y explicar con este experimento.</li>
+                </ul>
+                
+				<h3>Premios</h3>
+				<ul>
+					<li>¡La participación en este experimento tiene recompensa!</li>
+					<li>Los Viernes 25 de Mayo y 8 de Junio realizaremos sorteos por órdenes de compra.</li>
+					<li>Mientras más oraciones completás, más chances tenés de ganar:</li>
+					<ul>
+						<li>Cada oración que completes suma 1 punto.</li>
+						<li>Además, cada 10 oraciones tendrás 10 puntos extra.</li>
+						<li><b>¡¡Completar el experimento duplica las chances!!</b></li>
+					</ul>
+				</ul>
+				
+				<h3>Aviso importante</h3>
+				<ul>
+					<li><i><b>¡Esto no es una competencia!</b></i> No hay palabras correctas o incorrectas, deberás completar con la palabra que te parezca que va a continuación según el contexto en el que estás leyendo. 
+                Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos.</p></li>
+				</ul>
+					
+<!--
+               <p>Este experimento es parte fundamental de la investi un trabajo conjunto entre el <a href="http://neuro.org.ar/?q=es"> Laboratorio de Neurociencia Integrativa </a> (FCEyN - UBA) y la Universidad Nacional del Sur, te pedimos que lo hagas a conciencia, concentrándote en cada oración que leés.</p>
+-->
+
+
+
                 
 					<div id="boton_sin_preguntas" align=center  style ="margin-top:5%; ">
 						<form action="javascript:trial_inicio()" align=center>
