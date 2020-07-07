@@ -209,7 +209,7 @@ def subir(request):
 
 
 	wt = [(p[i],t[i]) for i in range(len(t))] 
-	trial = Trial(subject=sub,trialOpt=trialOption,initial_time=dt,words=json.dumps(wt).encode('utf8'))
+	trial = Trial(subject=sub,trialOpt=trialOption,initial_time=dt,words=json.dumps(wt))
 	trial.save()
 
 	return HttpResponse('')
@@ -270,7 +270,7 @@ def bajar_todo(request):
         #print t.initial_time
         #print epoch
         delta = t.initial_time - epoch 
-        ep = long(delta.total_seconds()*1000) + 3600 * 1000 * 3 # GMT-3 correction
+        ep = delta.total_seconds()*1000 + 3600 * 1000 * 3 # GMT-3 correction
 
         #print datetime.datetime.now()
         line_prefix = "'" + str(t.id) + "','" + str(s.id) + "','" + str(s.email) + "','" + str(seq_num) + "','" + str(to.id) + "','" + str(te.textClass) + "','" + str(te.textNumber) + "','" + str(ep) + "','"
@@ -287,7 +287,7 @@ def bajar_todo(request):
             #line = "'" + str(t.id) + "','" + str(s.id) + "','" + str(s.email) + "','" + str(seq_num) + "','" + str(to.id) + "','" + str(te.textClass) + "','" + str(te.textNumber) + "','" + str(ep) + "','" + p_limpia + "','" + pal_original + "','" + pt + "','" + str(c) + "','" + str(s.age) + "'" 
             line = line_prefix + p_limpia + "','" + pal_original + "','" + pt + "','" + str(c) + line_suffix
             #csv += (line.encode('iso-8859-1', 'ignore') + '\n')
-            os.write(tf_csv,line.encode('iso-8859-1', 'ignore') + '\n')
+            os.write(tf_csv,line.encode('iso-8859-1', 'ignore') + '\n'.encode('iso-8859-1', 'ignore'))
             c = c + 1
     
         #print datetime.datetime.now()
@@ -301,15 +301,15 @@ def bajar_todo(request):
 
 def bajar_sujetos(request):
     
-    csv = ''
+    csv = ''.encode('iso-8859-1')
     
     line = "'email';'age';'gender';'original_ip';'sequence_number';'experiment_sequence';'native_language';'reading_language';'work_reading_language';'country';'schooling';'books';'work_reading';'computer_reading';'dexterity';'source';'other_experiments'" 
-    csv = csv + (line.encode('iso-8859-1')+'\n')
+    csv = csv + (line.encode('iso-8859-1')+'\n'.encode('iso-8859-1'))
     for s in Subject.objects.all().order_by('id'):
         
         try:
             line = "'" + str(s.email) + "';'" + str(s.age) + "';'" + str(s.gender) + "';'" + str(s.original_ip) + "';'" + str(s.sequence_number) + "';'" + str(s.experiment_sequence) + "';'" + str(s.information.native_language) + "';'" +    str(s.information.reading_language) + "';'" + str(s.information.work_reading_language) + "';'" + str(s.information.country) + "';'" +            str(s.information.schooling) + "';'" + str(s.information.books) + "';'" + str(s.information.work_reading) + "';'" +            str(s.information.computer_reading) + "';'" + str(s.information.dexterity) + "';'" + str(s.information.source) + "';'" + str(s.information.other_experiments) + "'" 
-            csv = csv + (line.encode('iso-8859-1','ignore')+'\n')
+            csv = csv + (line.encode('iso-8859-1','ignore')+'\n'.encode('iso-8859-1'))
         except ObjectDoesNotExist:
             print('User incomplete: ' + str(s.email))
         #c = c + 1
