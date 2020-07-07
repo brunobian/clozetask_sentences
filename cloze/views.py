@@ -125,8 +125,8 @@ def trial(request):
 		#~ etiqueta_trial = str(indice-1) +' de '+str(len(seq))
 		etiqueta_trial = str(indice-1) #No quiero que le diga cuántos le faltan
 		finalizado = False
-		#~ if (indice-1) % 30 == 0 and (indice-1) != 0 and (indice-1) < 100:
-			#~ descanso = True
+		if (indice-1) % 10 == 0 and (indice-1) != 0:
+			descanso = True
 
 		
 			
