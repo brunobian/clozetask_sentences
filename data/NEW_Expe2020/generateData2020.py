@@ -1,12 +1,19 @@
 import pandas as pd
 import csv
+from Orac2018 import *
 
 # Cargo las oraciones de los cuentos y las oraciones control
 cuentos   = pd.read_csv('oraciones_cuentos_orig.tsv', sep='\t')
-controles = pd.read_csv('oraciones_control_orig.tsv', sep='\t')
+
+c = cuentos.columns
+lP = len(Prov)
+lC = len(Cont)
+ProvDF = pd.DataFrame({c[1]:[10]*lC, c[2]:[0]*lC, c[5]:Cont})
+ContDF = pd.DataFrame({c[1]:[11]*lP, c[2]:[0]*lP, c[5]:Prov})
+
+todas = pd.concat([cuentos, ProvDF, ContDF],sort=False)
 
 # Las pongo todas en un solo DF
-todas = pd.concat([cuentos, controles])
 todas = todas.reset_index()
 
 # selecciono solo las columnas que me interesan para textos.csv
@@ -17,8 +24,10 @@ csv_final.to_csv('textos.csv', header = False)
 
 # Como pandas me guarda con comillas que no quiero, las elimino
 with open('textos.csv', 'r') as infile:
-	    data = infile.read()
-	    data = data.replace('"', "")
+        data = infile.read()
+        data = data.replace('""', "'")
+        data = data.replace('"', "")
+        data = data.replace("'",'"')
 with open('textos.csv', 'w', encoding='latin-1') as outfile:	 
 	    outfile.write(data)
 	    
