@@ -327,17 +327,14 @@ class Subject(models.Model):
 		ts = TrialSequence.objects.all().order_by('id')[ts_num]
 		seq_base1 = json.loads(ts.seq)
 		
-		# Pero tengo que darlas en orden aleatorio. A todas, excepto a las primeras 10
-		# Antes tenia 10 de entrenamiento, y hacia esto:
-		Entrenamiento = seq_base1[0:10] # Las 10 primeras oraciones son de entrenamiento
-		Experimento = seq_base1[10:] # Las siguientes oraciones son de experimento
-		random.shuffle(Entrenamiento) # Mezclo las oraciones de entrenamiento, de las cuales sólo voy a mostrar 3
-		random.shuffle(Experimento) # Mezclo las oraciones experimentales
-		seq_base0 = Entrenamiento[0:3] + Experimento
-		
-		#(12/1/18) Ahora ya no
-		random.shuffle(seq_base1) # Mezclo las oraciones experimentales
-		seq_base0 = seq_base1
+		# Pero tengo que darlas en orden aleatorio. 
+		# Primero las 105 del experimento de Lena 
+		# Despues el resto del experimento de proverbios		
+		Lena  = seq_base1[:105] # Las 105 primeras oraciones son de Lena
+		Bruno = seq_base1[105:] # Las siguientes oraciones son de Bruno
+		random.shuffle(Lena) 
+		random.shuffle(Bruno)
+		seq_base0 = Lena + Bruno
 		
 		return (ts.id,seq_base0)       
 
