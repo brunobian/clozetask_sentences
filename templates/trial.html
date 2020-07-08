@@ -73,7 +73,8 @@ function trial_default() {
 	if (ismobile()===true) {
 		$("#formulario_mobile").show();
 		$("#formulario_segundo_inicio").hide();            
-		$("#formulario_inicio").hide();            
+		$("#formulario_instrucciones").hide();            
+		$("#formulario_preguntas").hide();            
 		$("#formulario_preguntas").hide(); 
 		$("#boton_sin_preguntas").hide(); 
 		$("#formulario_instrucciones").hide();
@@ -121,11 +122,11 @@ function trial_inicio(){
 	tiempo_inicial = currentDate.getTime();	
 	
 	//Borro boton de inicio
-	$("#formulario_inicio").html("");
+	$("#formulario_instrucciones").html("");
+	$("#formulario_premios").html("");
 	$("#formulario_preguntas").html("");
 	$("#formulario_segundo_inicio").html("");
     $("#formulario_preguntas").html(""); 
-    $("#formulario_inicio").html(""); 
 	$("#descanso").html("");
 	$("#texto").show()
 	$("#rectangulo").hide()
