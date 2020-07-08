@@ -623,12 +623,14 @@ $().ready(trial_default)
 		<div class="container" align=center id="descanso">
 		   <div id="bonus" align=center style="margin-top:5px;margin-bottom:5px"> 
 				<img src="{% static "bonus.png" %}" height="400px"> 
-				<p>Puntos acumulados: <b id='puntaje2'></b></p>
+				<h1>Puntos acumulados: <b id='puntaje'></b></h1>
+				
 				<script>
 					var puntos = parseInt({{etiqueta_trial}})+(Math.floor(parseInt({{etiqueta_trial}})/10)*25);
-					document.getElementById('puntaje2').innerHTML = puntos;
+					document.getElementById('puntaje').innerHTML = puntos;
 				</script>
 
+				<h2>Los puntos que sumás durante el experimento te dan mas chances para los sortes por órdenes de compra.</h2>
 		   </div>
 			<div id="seguir"  align="center" style="width: 600px; margin-top:3%; margin-bottom:1%">
 				<div align="center">
