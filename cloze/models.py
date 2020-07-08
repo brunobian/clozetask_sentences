@@ -298,10 +298,13 @@ DEXTERITY = (
 	)
 
 SOURCE = (
-		('FB_Labo','Por la página de Facebook del Laboratorio'),
-		('FB_amigo','Por otro Facebook'),
+		('FB_Labo','Por una red social del Laboratorio'),
+		('FB_amigo','Por Facebook'),
 		('Twitter','Por Twitter'),
-		('mail','Por e-mail')
+		('IG','Por Instagram'),
+		('wapp','Por Whatsapp'),
+		('mail','Por e-mail'),
+		('otro','Otro')
 	)
 
 # Create your models here.
