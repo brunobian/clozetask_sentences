@@ -468,26 +468,30 @@ $().ready(trial_default)
 			</div>		
 				
             <div id="formulario_instrucciones" style="margin-left:150px;width:85%">
-				<div id="instrucciones" align=center style="margin-top:5px;margin-bottom:5px"> 
-					<img src="{% static "Instrucciones.png" %}" height="400px"> 
-				</div>
-<!--
-                <h3>Objetivo del experimento</h3>
-					<ul>
-						<li>Nuestro objetivo es estimar la predictibilidad de las palabra dado el contexto en el que se encuadran.</li>
-						<li>Para hacerlo necesitamos que mucha gente complete algunas oraciones con las palabras que creen probables. </li>
-					</ul>                
-				<h3>Instrucciones</h3>
-				<ul>
-					<li>Durante este experimento vas a leer oraciones. </li>
-					<li>En cada oración se va a mostrar sólo la primera palabra y luego vas a tener que completar el resto, <b>de a una</b>. </li>
-					<li><b>Siempre</b> se completa con <b>una sola</b> palabra.</li>
-					<li>Esa palabra debe ser aquella que te suene más factible según el contexto (poné la primera que se te venga a la cabeza).</li>
-					<li>Luego de escribir la palabra, apretá <i>ENTER</i> para poder seguir con la próxima. </li>
-					<li>Vas a notar que hay palabras muy predecibles y palabras muy poco predecibles.</li>
-					<li>No te preocupes si la palabra que completaste no es igual a la original, es parte de la naturaleza que intentamos describir y explicar con este experimento.</li>
-                </ul>
--->
+				<table style="width:100%">
+					<td style="width:50%"> 
+						<h3>Objetivo del experimento</h3>
+							<p>Nuestro objetivo es estimar la cuan predecibles son de las palabras, dado el contexto 
+							en el que se encuentran. Para esto necesitamos que vos (y muchas otras personas) 
+							completen algunas oraciones incompletas con las palabras que creas más probables.</p>  
+						<h3>Instrucciones</h3>
+							<p>Durante este experimento se te van a presentar varias oraciones. En cada oración 
+								se va a mostrar sólo la primera palabra y luego vas a tener que ir prediciendo el resto, 
+								de a una a la vez. La idea es que escribas la palabra que te suene más factible según el 
+								contexto (la primera que te venga a la cabeza). Siempre completá con una sola palabra.</p>
+
+							<p>Luego de escribir la palabra, apretá ENTER para poder seguir con la próxima.</p>
+
+							<p>Vas a notar que hay palabras muy predecibles y palabras muy poco predecibles. No te 
+								preocupes si la palabra que completaste no es igual a la original, es parte de la naturaleza 
+								que intentamos describir y explicar con este experimento.</p>
+					</td>
+					<td style="width:50%"> 
+						<div id="instrucciones" align=center style="margin-top:5px;margin-bottom:5px"> 
+							<img src="{% static "Instrucciones.png" %}" height="400px"> 
+						</div>
+					</td>
+				</table>
 
 
 				<div id="boton_a_premios" align=center  style ="margin-top:5%; ">
