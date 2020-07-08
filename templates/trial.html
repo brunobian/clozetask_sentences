@@ -184,12 +184,13 @@ function trial_inicio_preguntas(){
     }
 }
 function trial_premios(){
-	$("#formulario_instrucciones").hide();
-	$('html,body').scrollTop(0);
+	$("#formulario_premios").show();
 	$("#boton_sin_preguntas").show(); 
+	$("#formulario_instrucciones").hide();
 	$("#formulario_preguntas").hide();
 	$("#boton_a_premios").hide(); 
-	$("#formulario_premios").show();
+	$('html,body').scrollTop(0);
+
 }
 
 function arreglo_valor_inputs(texto_num){
@@ -396,8 +397,6 @@ $().ready(trial_default)
 	</div>
 	
 
-	
-	
         {%if finalizado%} 
 			<div id="fin" class="container" align= "center" style="margin-top:150px;">
 				<h3>¡¡Ya no te quedan más oraciones!!</h3>
@@ -418,17 +417,13 @@ $().ready(trial_default)
 <!--			Margin-top para que nada se muestre en el flahseo    -->
 			<div id="rectangulo" style="margin-top:1000000px"></div>
 			
-			<div class="container" align=left style="margin-left:150px;">
-				<div id="formulario_segundo_inicio">
-					<h3>¡¡Gracias por volver!!</h3>
-					<p>Te estabamos esperando para que sigas completando oraciones.</p>
-				</div>
+			<div id="formulario_segundo_inicio" class="container" align=left style="margin-left:150px;">
+				<h3>¡¡Gracias por volver!!</h3>
+				<p>Te estabamos esperando para que sigas completando oraciones.</p>
 			</div>
 
-		    <div class="container" align=LEFT style="margin-left:150px;" >		
-			<div id="formulario_preguntas" >
+		    <div id="formulario_preguntas"  class="container" align=LEFT style="margin-left:150px;" >		
 				<form id="frmPreguntas" action="javascript:trial_inicio_preguntas()" >
-
                     <h3>Cuestionario</h3>
                     <p>Antes de empezar te vamos a pedir que completes unas preguntas por única vez que nos servirán a la hora de analizar los datos. Una vez finalizada la encuesta podrás empezar con el experimento</p>
                     <p><label class="description">Lengua nativa: {{ form.native_language }}</label><br></p>	
@@ -470,15 +465,12 @@ $().ready(trial_default)
 				</form> 
 			</div>		
 				
-				
-					
             <div id="formulario_instrucciones" style="width:85%">
                 <h3>Objetivo del experimento</h3>
-                <ul>
-					<li>Nuestro objetivo es estimar la predictibilidad de las palabra dado el contexto en el que se encuadran.</li>
-					<li>Para hacerlo necesitamos que mucha gente complete algunas oraciones con las palabras que creen probables. </li>
-                </ul>                
-                
+					<ul>
+						<li>Nuestro objetivo es estimar la predictibilidad de las palabra dado el contexto en el que se encuadran.</li>
+						<li>Para hacerlo necesitamos que mucha gente complete algunas oraciones con las palabras que creen probables. </li>
+					</ul>                
 				<h3>Instrucciones</h3>
 				<ul>
 					<li>Durante este experimento vas a leer oraciones. </li>
@@ -491,10 +483,11 @@ $().ready(trial_default)
                 </ul>
 				<div id="boton_a_premios" align=center  style ="margin-top:5%; ">
 					<form action="javascript:trial_premios()" align=center>
-						<input id="input_iniciar_trial" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para continuar">
+						<input id="input_a_premios" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para continuar">
 					</form>	
 				<br>
-			</div>	
+				</div>	
+			</div>
 			
 			<div id="formulario_premios" style="width:85%">
 
@@ -511,28 +504,26 @@ $().ready(trial_default)
 				</ul>
 				
 				<h3>Aviso importante</h3>
-				<ul>
-					<li><i><b>¡Esto no es una competencia!</b></i> No hay palabras correctas o incorrectas, deberás completar con la palabra que te parezca que va a continuación según el contexto en el que estás leyendo. 
-                Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos.</p></li>
-				</ul>
-                
-					<div id="boton_sin_preguntas" align=center  style ="margin-top:5%; ">
-						<form action="javascript:trial_inicio()" align=center>
-							<input id="input_iniciar_trial" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para Empezar Experimento">
-						</form>	
+					<ul>
+						<li><i><b>¡Esto no es una competencia!</b></i> No hay palabras correctas o incorrectas, deberás completar con la palabra que te parezca que va a continuación según el contexto en el que estás leyendo. 
+					Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos.</li>
+					</ul>
+					
+				<div id="boton_sin_preguntas" align=center  style ="margin-top:5%">
+					<form action="javascript:trial_inicio()" align=center>
+						<input id="input_iniciar_trial" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para Empezar Experimento">
+					</form>	
 					<br>
-					</div>					
+				</div>					
 
-					<br>
-					<div align=center><p>
-					¡Gracias por tu participación!
-					</p>
-					<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
-					</div>
+				<br>
+				<div align=center>
+					<p> ¡Gracias por tu participación! </p>
+					<p> Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
+				</div>
 
 
 				<br>
-				</div>
             </div>
 
 		<!-- Empiezo a mostrar los textos -->
