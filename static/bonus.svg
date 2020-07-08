@@ -51,10 +51,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="436.91744"
+     inkscape:cx="315.84601"
      inkscape:cy="664.0025"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4501"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1056"
@@ -69,7 +69,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -131,7 +131,9 @@
            inkscape:flatsided="false"
            inkscape:rounded="0"
            inkscape:randomized="0"
-           d="m -40.000023,506.64793 -57.365879,-25.95304 -28.657298,56.06392 -34.22797,-52.84742 -54.4185,31.67067 -0.22293,-62.96312 -62.90221,-2.7778 33.85289,-53.08847 -51.41491,-36.34433 57.18066,-26.35861 -23.60375,-58.3718 62.35397,8.73992 11.70144,-61.86663 47.73034,41.06359 43.291509,-45.71925 17.952662,60.34987 61.136824,-15.05633 -17.524861,60.47548 59.571634,20.38688 -47.438365,41.40056 39.09287,49.35738 -62.290522,9.18125 z" />
+           d="m -40.000023,506.64793 -57.365879,-25.95304 -28.657298,56.06392 -34.22797,-52.84742 -54.4185,31.67067 -0.22293,-62.96312 -62.90221,-2.7778 33.85289,-53.08847 -51.41491,-36.34433 57.18066,-26.35861 -23.60375,-58.3718 62.35397,8.73992 11.70144,-61.86663 47.73034,41.06359 43.291509,-45.71925 17.952662,60.34987 61.136824,-15.05633 -17.524861,60.47548 59.571634,20.38688 -47.438365,41.40056 39.09287,49.35738 -62.290522,9.18125 z"
+           inkscape:export-xdpi="200"
+           inkscape:export-ydpi="200" />
         <g
            transform="translate(3.3901078,-13.560431)"
            id="g4340">
@@ -145,12 +147,14 @@
                y="342.58316"
                id="text4223"
                sodipodi:linespacing="125%"
-               transform="matrix(0.96592583,-0.25881905,0.25881905,0.96592583,0,0)"><tspan
+               transform="matrix(0.96592583,-0.25881905,0.25881905,0.96592583,0,0)"
+               inkscape:export-xdpi="200"
+               inkscape:export-ydpi="200"><tspan
                  sodipodi:role="line"
                  id="tspan4225"
                  x="-309.1076"
                  y="342.58316"
-                 style="letter-spacing:-8.45265198px">+10</tspan><tspan
+                 style="letter-spacing:-8.45265198px">+25</tspan><tspan
                  id="tspan4317"
                  sodipodi:role="line"
                  x="-309.1076"
@@ -163,7 +167,9 @@
                y="377.29767"
                id="text4223-1"
                sodipodi:linespacing="125%"
-               transform="matrix(0.96592582,-0.25881905,0.25881905,0.96592582,0,0)"><tspan
+               transform="matrix(0.96592582,-0.25881905,0.25881905,0.96592582,0,0)"
+               inkscape:export-xdpi="200"
+               inkscape:export-ydpi="200"><tspan
                  sodipodi:role="line"
                  id="tspan4225-2"
                  x="-302.7247"

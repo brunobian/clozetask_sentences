@@ -76,7 +76,8 @@ function trial_default() {
 		$("#formulario_inicio").hide();            
 		$("#formulario_preguntas").hide(); 
 		$("#boton_sin_preguntas").hide(); 
-		$("#formulario_inicio").hide();            
+		$("#formulario_instrucciones").hide();
+		$("#formulario_premios").hide();
 		$("#boton_sin_preguntas").hide(); 
 		$("#formulario_preguntas").hide();
 		$("#formulario_segundo_inicio").hide();  
@@ -85,13 +86,14 @@ function trial_default() {
 	}else {
 		if ({{initial_trial}}) {
 				$("#formulario_segundo_inicio").show();            
-				$("#formulario_inicio").show();            
+				$("#formulario_instrucciones").show();            
 				$("#formulario_preguntas").hide();
 				$("#descanso").hide();
 				$("#boton_sin_preguntas").show(); 
 					{% if primer_trial %}
 						$("#descanso").hide();
-						$("#formulario_inicio").hide();            
+						$("#formulario_instrucciones").hide();
+						$("#formulario_premios").hide();            
 						$("#boton_sin_preguntas").hide(); 
 						$("#formulario_preguntas").show();
 						$("#formulario_segundo_inicio").hide(); 
@@ -100,7 +102,8 @@ function trial_default() {
 		} else {
 					{% if descanso and primer_pausa %}
 						$("#descanso").show();
-						$("#formulario_inicio").hide();            
+						$("#formulario_instrucciones").hide();
+						$("#formulario_premios").hide();
 						$("#boton_sin_preguntas").hide(); 
 						$("#formulario_preguntas").hide();
 						$("#formulario_segundo_inicio").hide(); 
@@ -172,12 +175,23 @@ function trial_inicio_preguntas(){
         'other_experiments': document.forms[0].other_experiments.value,
         });
     //~ trial_inicio();
-		$("#formulario_inicio").show();
+		$("#formulario_instrucciones").show();
+		$("#formulario_premios").hide();
 		$('html,body').scrollTop(0);
-		$("#boton_sin_preguntas").show(); 
+		$("#boton_sin_preguntas").hide(); 
+		$("#boton_a_premios").show(); 
 		$("#formulario_preguntas").hide();
     }
 }
+function trial_premios(){
+	$("#formulario_instrucciones").hide();
+	$('html,body').scrollTop(0);
+	$("#boton_sin_preguntas").show(); 
+	$("#formulario_preguntas").hide();
+	$("#boton_a_premios").hide(); 
+	$("#formulario_premios").show();
+}
+
 function arreglo_valor_inputs(texto_num){
 	//cargo las palabras posta, hasta donde llego a completar
 	
@@ -452,13 +466,13 @@ $().ready(trial_default)
 						HACIENDO CLICK EN <b>EMPEZAR EXPERIMENTO</b>, ACEPTO PARTICIPAR DE MANERA COMPLETAMENTE VOLUNTARIA EN ESTA ACTIVIDAD, ENTENDIENDO TANTO EL OBJETIVO DE LA INVESTIGACIÓN COMO LA DESCRIPCIÓN DE LAS TAREAS A REALIZAR. ASIMISMO, CERTIFICO QUE SOY MAYOR DE 18 AÑOS Y QUE COMPRENDO QUE TENGO LA LIBERTAD DE ABANDONAR LA ACTIVIDAD EN CUALQUIER MOMENTO QUE LO DESEE.				
 					</div>
 					<br>
-					<input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para Empezar Experimento" >
+					<input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para continuar" >
 				</form> 
 			</div>		
 				
 				
 					
-            <div id="formulario_inicio" style="width:85%">
+            <div id="formulario_instrucciones" style="width:85%">
                 <h3>Objetivo del experimento</h3>
                 <ul>
 					<li>Nuestro objetivo es estimar la predictibilidad de las palabra dado el contexto en el que se encuadran.</li>
@@ -475,7 +489,15 @@ $().ready(trial_default)
 					<li>Vas a notar que hay palabras muy predecibles y palabras muy poco predecibles.</li>
 					<li>No te preocupes si la palabra que completaste no es igual a la original, es parte de la naturaleza que intentamos describir y explicar con este experimento.</li>
                 </ul>
-                
+				<div id="boton_a_premios" align=center  style ="margin-top:5%; ">
+					<form action="javascript:trial_premios()" align=center>
+						<input id="input_iniciar_trial" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para continuar">
+					</form>	
+				<br>
+			</div>	
+			
+			<div id="formulario_premios" style="width:85%">
+
 				<h3>Premios</h3>
 				<ul>
 					<li>¡La participación en este experimento tiene recompensa!</li>
@@ -493,10 +515,6 @@ $().ready(trial_default)
 					<li><i><b>¡Esto no es una competencia!</b></i> No hay palabras correctas o incorrectas, deberás completar con la palabra que te parezca que va a continuación según el contexto en el que estás leyendo. 
                 Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos.</p></li>
 				</ul>
-
-					
-            
-
                 
 					<div id="boton_sin_preguntas" align=center  style ="margin-top:5%; ">
 						<form action="javascript:trial_inicio()" align=center>
