@@ -493,7 +493,6 @@ $().ready(trial_default)
 					</td>
 				</table>
 
-
 				<div id="boton_a_premios" align=center  style ="margin-top:5%; ">
 					<form action="javascript:trial_premios()" align=center>
 						<input id="input_a_premios" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para continuar">
@@ -504,23 +503,29 @@ $().ready(trial_default)
 			
 			<div id="formulario_premios" style="margin-left:150px;width:85%">
 
-				<h3>Premios</h3>
-				<ul>
-					<li>¡La participación en este experimento tiene recompensa!</li>
-					<li>Los Viernes 25 de Mayo y 8 de Junio realizaremos sorteos por órdenes de compra.</li>
-					<li>Mientras más oraciones completás, más chances tenés de ganar:</li>
-					<ul>
-						<li>Cada oración que completes suma 1 punto.</li>
-						<li>Además, cada 10 oraciones tendrás 10 puntos extra.</li>
-						<li><b>¡¡Completar el experimento duplica las chances!!</b></li>
-					</ul>
-				</ul>
-				
-				<h3>Aviso importante</h3>
-					<ul>
-						<li><i><b>¡Esto no es una competencia!</b></i> No hay palabras correctas o incorrectas, deberás completar con la palabra que te parezca que va a continuación según el contexto en el que estás leyendo. 
-					Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos.</li>
-					</ul>
+				<table style="width:100%">
+					<td style="width:50%"> 
+						<h3>Premios</h3>
+							<p>¡Participar en este experimento tiene su recompensa!</p>
+							<p>Vamos a realizar sorteos por órdenes de compra.</p>
+							<p>Mientras más oraciones completás, más chances tenés de ganar:</p>
+							<ul>
+								<li>Cada oración que completes suma 1 punto.</li>
+								<li>Además, durante el experimento vas a recibir bonus extra!</li>
+								<li>¡Terminar todas las oraciones duplica tus chances de ganar!</li>
+							<ul>
+													
+						<h3>Aviso importante</h3>
+							<p><b>¡Esto no es una competencia!</b> No hay palabras correctas o incorrectas, deberás completar con la palabra que vos creas que va a continuación según el contexto.</p>
+							<p> Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos. Tambien, podes tomarte un rato y volver a entrar y no vas a perder tu progreso.</p>p>
+
+					</td>
+					<td style="width:50%"> 
+						<div id="instrucciones" align=center style="margin-top:5px;margin-bottom:5px"> 
+							<img src="{% static "sorteo.png" %}" height="350px"> 
+						</div>
+					</td>
+				</table>
 					
 				<div id="boton_sin_preguntas" align=center  style ="margin-top:5%">
 					<form action="javascript:trial_inicio()" align=center>
