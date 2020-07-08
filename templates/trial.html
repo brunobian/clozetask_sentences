@@ -352,6 +352,12 @@ var tiempos = new Array();
 
 $().ready(trial_default)
 
+// puntaje
+var puntos = parseInt({{etiqueta_trial}})+(Math.floor(parseInt({{etiqueta_trial}})/10)*25);
+document.getElementById('puntaje').innerHTML = puntos;
+document.getElementById('puntaje2').innerHTML = puntos;
+
+
 </script>
 </head>
 
@@ -388,11 +394,10 @@ $().ready(trial_default)
 						<script>					
 							var leidas  = parseInt({{etiqueta_trial}})+1;
 							var porcent = Math.floor(parseInt({{etiqueta_trial}})*100/208); // CAMBIAR EL DENOMINADOR DEL PORCENTAJE
-							var puntos = parseInt({{etiqueta_trial}})+(Math.floor(parseInt({{etiqueta_trial}})/10)*25);
 											
 							document.getElementById('etiqueta_trial').innerHTML = leidas;
 							//document.getElementById('porcentaje').innerHTML = porcent;
-							document.getElementById('puntaje').innerHTML = puntos;
+							//~ document.getElementById('puntaje').innerHTML = puntos;
 						</script>
 					</font>
 					</div>
@@ -628,8 +633,7 @@ $().ready(trial_default)
 				<h3 style="width: 600px">Los puntos que sumás durante el experimento te dan mas chances para los sortes por órdenes de compra.</h3>
 
 				<script>
-					var puntos = parseInt({{etiqueta_trial}})+(Math.floor(parseInt({{etiqueta_trial}})/10)*25);
-					document.getElementById('puntaje2').innerHTML = puntos;
+					//~ var puntos = parseInt({{etiqueta_trial}})+(Math.floor(parseInt({{etiqueta_trial}})/10)*25);
 				</script>
 		   </div>
 			<div id="seguir"  align="center" style="width: 600px; margin-top:3%; margin-bottom:1%">
