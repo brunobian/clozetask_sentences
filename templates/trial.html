@@ -55,7 +55,6 @@ function ismobile() {
 		  }
 }
 
-
 function trial_default() {
 	{% for indice in cant_textos %}
 		$("#texto{{indice}}").hide();
@@ -71,6 +70,7 @@ function trial_default() {
 	$("#rectangulo").hide();
 
 	if (ismobile()===true) {
+		$("#header").hide();
 		$("#formulario_mobile").show();
 		$("#formulario_segundo_inicio").hide();            
 		$("#formulario_instrucciones").hide();            
@@ -148,7 +148,6 @@ function trial_inicio(){
 
 	}
 
-	
 function trial_inicio_preguntas(){
     if ( document.forms[0].native_language.value == "" || 
 		 document.forms[0].country.value == "" || 
@@ -187,6 +186,7 @@ function trial_inicio_preguntas(){
 		$("#formulario_preguntas").hide();
     }
 }
+
 function trial_premios(){
 	$("#formulario_segundo_inicio").hide();            
 	$("#formulario_premios").show();
@@ -371,7 +371,7 @@ function variables() {
 	
 	
 	<!-- Header	-->
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin-top:10px;margin-left:10px;margin-rigth:20px;border-radius:8px;width:98%; background-color:#004949">
+	<div id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin-top:10px;margin-left:10px;margin-rigth:20px;border-radius:8px;width:98%; background-color:#004949">
 		<table style="width:100%">
 			<div class="container">
 				<!-- Primera columna (Título) -->
