@@ -402,148 +402,148 @@ function variables() {
 	</div>
 	
 
-        {%if finalizado%} 
-			<div id="fin" class="container" align= "center" style="margin-top:150px;">
-				<h3>¡¡Ya no te quedan más oraciones!!</h3>
-				<br>
-                <p>Gracias por completar todo el experimento. </p>
-				<br>	
-				<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
+	{%if finalizado%} 
+		<div id="fin" class="container" align= "center" style="margin-top:150px;">
+			<h3>¡¡Ya no te quedan más oraciones!!</h3>
+			<br>
+			<p>Gracias por completar todo el experimento. </p>
+			<br>	
+			<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
 <!--
-				<p>Sitio Web del <a href="http://neuro.org.ar/?q=es">Laboratorio de Neurociencia Integrativa</a></p>
-				<p>O visitanos en <a href="https://facebook.com/neurointegrativa"> Facebook</a> para enterarte de las novedades</p>	
+			<p>Sitio Web del <a href="http://neuro.org.ar/?q=es">Laboratorio de Neurociencia Integrativa</a></p>
+			<p>O visitanos en <a href="https://facebook.com/neurointegrativa"> Facebook</a> para enterarte de las novedades</p>	
 -->
-				<br>
-            </div>
-		{% else %}
+			<br>
+		</div>
+	{% else %}
 <!--			Margin-top para que todo se muestre por debajo del header    -->
-			<div style="margin-top:120px"> </div>
+		<div style="margin-top:120px"> </div>
 
 <!--			Margin-top para que nada se muestre en el flahseo    -->
-			<div id="rectangulo" style="margin-top:1000000px"></div>
-			
-			<div id="formulario_segundo_inicio" class="container" align=center style="margin-left:150px;">
-				<h3>¡¡Gracias por volver!!</h3>
-				<p>Te estabamos esperando para que sigas completando oraciones.</p>
-			</div>
+		<div id="rectangulo" style="margin-top:1000000px"></div>
+		
+		<div id="formulario_segundo_inicio" class="container" align=center style="margin-left:150px;">
+			<h3>¡¡Gracias por volver!!</h3>
+			<p>Te estabamos esperando para que sigas completando oraciones.</p>
+		</div>
 
-		    <div id="formulario_preguntas"  class="container" align=LEFT style="margin-left:150px;" >		
-				<form id="frmPreguntas" action="javascript:trial_inicio_preguntas()" >
-                    <h3>Cuestionario</h3>
-                    <p>Antes de empezar te vamos a pedir que completes unas preguntas por única vez que nos servirán a la hora de analizar los datos. Una vez finalizada la encuesta podrás empezar con el experimento</p>
-                    <p><label class="description">Lengua nativa: {{ form.native_language }}</label><br></p>	
-                    <p><label class="description">Pais de Nacimiento {{ form.country }} </label><br></p>
-                    <p><label class="description">Nivel educativo maximo alcanzado/en curso {{ form.schooling }} </label><br></p>
-                    <p><label class="description">¿Cuántos libros de Literatura General lees por año? {{ form.books }} </label><br> </p> 
-                    <p><label class="description">¿En qué idioma lees regularmente Literatura General? {{form.reading_language }} </label><br></p>
-                    <p><label class="description">¿Lees por trabajo? {{ form.work_reading }} </label><br> </p> 
-                    <p><label class="description">¿En qué idioma lees regularmente por trabajo? (No obligatoria	) {{form.work_reading_language }} </label><br></p>
-                    <p><label class="description">¿Lees habitualmente en la computadora? {{ form.computer_reading }} </label><br> </p> 
-                    <p><label class="description">Para escribir, sos: {{ form.dexterity }} </label><br> </p> 
-                    <p><label class="description">¿Cómo llegaste al experimento? {{ form.source }} </label><br> </p>  
-                    <p><label class="description">¿Querés participar de otros experimentos parecidos? {{ form.other_experiments }} </label><br> </p> 
-					<br>
-					<br>
-					
-					Antes de comenzar el experimento lee el siguiente texto:
-					<div style="height:180px;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
-						<h4>CONSENTIMIENTO INFORMADO PARA EXPERIMENTOS MASIVOS</h4>
-
-						<p>Por favor, lea la siguiente información antes de decidir participar de esta actividad:</p>
-
-						<p><b>¿Cuál es el objetivo de esta investigación?</b> El objetivo de esta investigación es profundizar el conocimiento sobre la complejidad y dinámica de procesos cognitivos.</p>
-						<p><b>¿Qué tendré que hacer si decido participar de esta actividad?</b> Primero, se le solicitará que complete algunos datos personales (por ejemplo, edad, género, si estudia y/o trabaja, su dirección de correo electrónico, lugar de nacimiento, lugar de residencia). Luego, comenzarán las actividades relacionadas con la investigación donde deberá realizar distintas tareas visuales y/o sonoras utilizando el teclado, pantalla táctil y/o el mouse de su computadora o dispositivo móvil. Una vez finalizada la última tarea, se le harán algunas preguntas de elección múltiple relacionadas con las tareas previas.  </p>
-						<p><b>¿Cuánto tiempo requiere la actividad?</b> La actividad puede realizarse en aproximadamente 30 minutos (incluyendo todas las tareas y las preguntas accesorias), pudiendo ser realizada hasta 4 veces. </p>
-						<p><b>¿Qué ocurre si me arrepiento y deseo abandonar la actividad antes de completarla? </b> Su participación en esta actividad es completamente voluntaria y puede abandonarla en el momento que desee (cerrando el programa que está utilizando para navegar por internet). </p>
-						<p><b>¿Cuáles son los riesgos asociados a la participación en esta actividad? </b> No esperamos ningún riesgo asociado a su participación. Aún así, recuerde que su participación es voluntaria y que podrá abandonar la actividad cuando lo desee. </p>
-						<p><b>¿De qué manera será utilizada la información que yo comparta con ustedes? </b> La información que usted nos brinde no será compartida con nadie y será tratada de manera confidencial y anónima.</p>
-						<p><b>¿Cómo puedo contactarme con los investigadores responsables para hacerles consultas, comentarios, etc. relacionados con la investigación?</b> Si tiene alguna pregunta o comentario puede contactar al investigador responsable de este proyecto: </p>
-						<p>Mariano Sigman (Director del Laboratorio de Neurociencia, UTDT) al correo electrónico neurointegrativa@gmail.com.</p>
-						<p><b>¿En qué proyecto está enmarcada esta investigación? </b>Esta investigación forma parte del proyecto “Complejidad y dinámica de procesos cognitivos: Estudios de alta resolución del flujo de información cortical durante una tarea cognitiva”.</p>
-						<p><b>¿A quién debo contactar si tengo alguna queja o quiero reportar algún problema relacionado con la investigación? </b>Si tiene alguna queja o quiere reportar algún problema asociado con la investigación, por favor contáctese con: </p> 
-						<p>Comité de Ética en Investigación, Centro de Educación Médica e Investigaciones Clínicas “Norberto Quirno”. Hospital Universitario sede Saavedra, Av. Galván 4102. Ciudad de Buenos Aires, (C1425DQK) - República Argentina. Tel: 5299-0100, interno 2879. E-mail: pechavarria@cemic.edu.ar</p>
-
-						HACIENDO CLICK EN <b>EMPEZAR EXPERIMENTO</b>, ACEPTO PARTICIPAR DE MANERA COMPLETAMENTE VOLUNTARIA EN ESTA ACTIVIDAD, ENTENDIENDO TANTO EL OBJETIVO DE LA INVESTIGACIÓN COMO LA DESCRIPCIÓN DE LAS TAREAS A REALIZAR. ASIMISMO, CERTIFICO QUE SOY MAYOR DE 18 AÑOS Y QUE COMPRENDO QUE TENGO LA LIBERTAD DE ABANDONAR LA ACTIVIDAD EN CUALQUIER MOMENTO QUE LO DESEE.				
-					</div>
-					<br>
-					<input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para continuar" >
-				</form> 
-			</div>		
+		<div id="formulario_preguntas"  class="container" align=LEFT style="margin-left:150px;" >		
+			<form id="frmPreguntas" action="javascript:trial_inicio_preguntas()" >
+				<h3>Cuestionario</h3>
+				<p>Antes de empezar te vamos a pedir que completes unas preguntas por única vez que nos servirán a la hora de analizar los datos. Una vez finalizada la encuesta podrás empezar con el experimento</p>
+				<p><label class="description">Lengua nativa: {{ form.native_language }}</label><br></p>	
+				<p><label class="description">Pais de Nacimiento {{ form.country }} </label><br></p>
+				<p><label class="description">Nivel educativo maximo alcanzado/en curso {{ form.schooling }} </label><br></p>
+				<p><label class="description">¿Cuántos libros de Literatura General lees por año? {{ form.books }} </label><br> </p> 
+				<p><label class="description">¿En qué idioma lees regularmente Literatura General? {{form.reading_language }} </label><br></p>
+				<p><label class="description">¿Lees por trabajo? {{ form.work_reading }} </label><br> </p> 
+				<p><label class="description">¿En qué idioma lees regularmente por trabajo? (No obligatoria	) {{form.work_reading_language }} </label><br></p>
+				<p><label class="description">¿Lees habitualmente en la computadora? {{ form.computer_reading }} </label><br> </p> 
+				<p><label class="description">Para escribir, sos: {{ form.dexterity }} </label><br> </p> 
+				<p><label class="description">¿Cómo llegaste al experimento? {{ form.source }} </label><br> </p>  
+				<p><label class="description">¿Querés participar de otros experimentos parecidos? {{ form.other_experiments }} </label><br> </p> 
+				<br>
+				<br>
 				
-            <div id="formulario_instrucciones" style="margin-left:150px;width:85%">
-				<table style="width:100%">
-					<td style="width:50%"> 
-						<h3>Objetivo del experimento</h3>
-							<p>Nuestro objetivo es estimar la cuan predecibles son de las palabras, dado el contexto 
-							en el que se encuentran. Para esto necesitamos que vos (y muchas otras personas) 
-							completen algunas oraciones incompletas con las palabras que creas más probables.</p>  
-						<h3>Instrucciones</h3>
-							<p>Durante este experimento se te van a presentar varias oraciones. En cada oración 
-								se va a mostrar sólo la primera palabra y luego vas a tener que ir prediciendo el resto, 
-								de a una a la vez. La idea es que escribas la palabra que te suene más factible según el 
-								contexto (la primera que te venga a la cabeza). Siempre completá con <b>una sola palabra</b>.</p>
+				Antes de comenzar el experimento lee el siguiente texto:
+				<div style="height:180px;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+					<h4>CONSENTIMIENTO INFORMADO PARA EXPERIMENTOS MASIVOS</h4>
 
-							<p>Luego de escribir la palabra, apretá <b>ENTER</b> para poder seguir con la próxima.</p>
+					<p>Por favor, lea la siguiente información antes de decidir participar de esta actividad:</p>
 
-							<p>Vas a notar que hay palabras muy predecibles y palabras muy poco predecibles. No te 
-								preocupes si la palabra que completaste no es igual a la original, es parte de la naturaleza 
-								que intentamos describir y explicar con este experimento.</p>
-					</td>
-					<td style="width:50%"> 
-						<div id="instrucciones" align=center style="margin-top:5px;margin-bottom:5px"> 
-							<img src="{% static "Instrucciones.png" %}" height="350px"> 
-						</div>
-					</td>
-				</table>
+					<p><b>¿Cuál es el objetivo de esta investigación?</b> El objetivo de esta investigación es profundizar el conocimiento sobre la complejidad y dinámica de procesos cognitivos.</p>
+					<p><b>¿Qué tendré que hacer si decido participar de esta actividad?</b> Primero, se le solicitará que complete algunos datos personales (por ejemplo, edad, género, si estudia y/o trabaja, su dirección de correo electrónico, lugar de nacimiento, lugar de residencia). Luego, comenzarán las actividades relacionadas con la investigación donde deberá realizar distintas tareas visuales y/o sonoras utilizando el teclado, pantalla táctil y/o el mouse de su computadora o dispositivo móvil. Una vez finalizada la última tarea, se le harán algunas preguntas de elección múltiple relacionadas con las tareas previas.  </p>
+					<p><b>¿Cuánto tiempo requiere la actividad?</b> La actividad puede realizarse en aproximadamente 30 minutos (incluyendo todas las tareas y las preguntas accesorias), pudiendo ser realizada hasta 4 veces. </p>
+					<p><b>¿Qué ocurre si me arrepiento y deseo abandonar la actividad antes de completarla? </b> Su participación en esta actividad es completamente voluntaria y puede abandonarla en el momento que desee (cerrando el programa que está utilizando para navegar por internet). </p>
+					<p><b>¿Cuáles son los riesgos asociados a la participación en esta actividad? </b> No esperamos ningún riesgo asociado a su participación. Aún así, recuerde que su participación es voluntaria y que podrá abandonar la actividad cuando lo desee. </p>
+					<p><b>¿De qué manera será utilizada la información que yo comparta con ustedes? </b> La información que usted nos brinde no será compartida con nadie y será tratada de manera confidencial y anónima.</p>
+					<p><b>¿Cómo puedo contactarme con los investigadores responsables para hacerles consultas, comentarios, etc. relacionados con la investigación?</b> Si tiene alguna pregunta o comentario puede contactar al investigador responsable de este proyecto: </p>
+					<p>Mariano Sigman (Director del Laboratorio de Neurociencia, UTDT) al correo electrónico neurointegrativa@gmail.com.</p>
+					<p><b>¿En qué proyecto está enmarcada esta investigación? </b>Esta investigación forma parte del proyecto “Complejidad y dinámica de procesos cognitivos: Estudios de alta resolución del flujo de información cortical durante una tarea cognitiva”.</p>
+					<p><b>¿A quién debo contactar si tengo alguna queja o quiero reportar algún problema relacionado con la investigación? </b>Si tiene alguna queja o quiere reportar algún problema asociado con la investigación, por favor contáctese con: </p> 
+					<p>Comité de Ética en Investigación, Centro de Educación Médica e Investigaciones Clínicas “Norberto Quirno”. Hospital Universitario sede Saavedra, Av. Galván 4102. Ciudad de Buenos Aires, (C1425DQK) - República Argentina. Tel: 5299-0100, interno 2879. E-mail: pechavarria@cemic.edu.ar</p>
 
-				<div id="boton_a_premios" align=center  style ="margin-top:5%; ">
-					<form action="javascript:trial_premios()" align=center>
-						<input id="input_a_premios" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para continuar">
-					</form>	
-				<br>
-				</div>	
-			</div>
-			
-			<div id="formulario_premios" style="margin-left:150px;width:85%">
-
-				<table style="width:100%">
-					<td style="width:50%"> 
-						<h3>Premios</h3>
-							<p>¡Participar en este experimento tiene su recompensa!</p>
-							<p>Vamos a realizar sorteos por órdenes de compra.</p>
-							<p>Mientras más oraciones completás, más chances tenés de ganar:</p>
-							<ul>
-								<li>Cada oración que completes suma 1 punto.</li>
-								<li>Además, durante el experimento vas a recibir bonus extra!</li>
-								<li>¡Terminar todas las oraciones duplica tus chances de ganar!</li>
-							</ul>
-													
-						<h3>Aviso importante</h3>
-							<p><b>¡Esto no es una competencia!</b> No hay palabras correctas o incorrectas, deberás completar con la palabra que vos creas que va a continuación según el contexto.</p>
-							<p> Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos. Tambien, podes tomarte un rato y volver a entrar y no vas a perder tu progreso.</p>
-
-					</td>
-					<td style="width:50%"> 
-						<div id="instrucciones" align=center style="margin-top:5px;margin-bottom:2px"> 
-							<img src="{% static "sorteo.png" %}" height="350px"> 
-						</div>
-					</td>
-				</table>
-					
-				<div id="boton_sin_preguntas" align=center  style ="margin-top:3%">
-					<form action="javascript:trial_inicio()" align=center>
-						<input id="input_iniciar_trial" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para Empezar Experimento">
-					</form>	
-				</div>	
-				<br>				
-				<div align=center>
-					¡Gracias por tu participación! 
-					<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
+					HACIENDO CLICK EN <b>EMPEZAR EXPERIMENTO</b>, ACEPTO PARTICIPAR DE MANERA COMPLETAMENTE VOLUNTARIA EN ESTA ACTIVIDAD, ENTENDIENDO TANTO EL OBJETIVO DE LA INVESTIGACIÓN COMO LA DESCRIPCIÓN DE LAS TAREAS A REALIZAR. ASIMISMO, CERTIFICO QUE SOY MAYOR DE 18 AÑOS Y QUE COMPRENDO QUE TENGO LA LIBERTAD DE ABANDONAR LA ACTIVIDAD EN CUALQUIER MOMENTO QUE LO DESEE.				
 				</div>
-
-
 				<br>
-            </div>
+				<input id="input_iniciar_trial_preguntas" class="btn btn-lg btn-primary btn-block"  type="submit" value="Click aquí para continuar" >
+			</form> 
+		</div>		
+			
+		<div id="formulario_instrucciones" style="margin-left:150px;width:85%">
+			<table style="width:100%">
+				<td style="width:50%"> 
+					<h3>Objetivo del experimento</h3>
+						<p>Nuestro objetivo es estimar la cuan predecibles son de las palabras, dado el contexto 
+						en el que se encuentran. Para esto necesitamos que vos (y muchas otras personas) 
+						completen algunas oraciones incompletas con las palabras que creas más probables.</p>  
+					<h3>Instrucciones</h3>
+						<p>Durante este experimento se te van a presentar varias oraciones. En cada oración 
+							se va a mostrar sólo la primera palabra y luego vas a tener que ir prediciendo el resto, 
+							de a una a la vez. La idea es que escribas la palabra que te suene más factible según el 
+							contexto (la primera que te venga a la cabeza). Siempre completá con <b>una sola palabra</b>.</p>
+
+						<p>Luego de escribir la palabra, apretá <b>ENTER</b> para poder seguir con la próxima.</p>
+
+						<p>Vas a notar que hay palabras muy predecibles y palabras muy poco predecibles. No te 
+							preocupes si la palabra que completaste no es igual a la original, es parte de la naturaleza 
+							que intentamos describir y explicar con este experimento.</p>
+				</td>
+				<td style="width:50%"> 
+					<div id="instrucciones" align=center style="margin-top:5px;margin-bottom:5px"> 
+						<img src="{% static "Instrucciones.png" %}" height="350px"> 
+					</div>
+				</td>
+			</table>
+
+			<div id="boton_a_premios" align=center  style ="margin-top:5%; ">
+				<form action="javascript:trial_premios()" align=center>
+					<input id="input_a_premios" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para continuar">
+				</form>	
+			<br>
+			</div>	
+		</div>
+		
+		<div id="formulario_premios" style="margin-left:150px;width:85%">
+
+			<table style="width:100%">
+				<td style="width:50%"> 
+					<h3>Premios</h3>
+						<p>¡Participar en este experimento tiene su recompensa!</p>
+						<p>Vamos a realizar sorteos por órdenes de compra.</p>
+						<p>Mientras más oraciones completás, más chances tenés de ganar:</p>
+						<ul>
+							<li>Cada oración que completes suma 1 punto.</li>
+							<li>Además, durante el experimento vas a recibir bonus extra!</li>
+							<li>¡Terminar todas las oraciones duplica tus chances de ganar!</li>
+						</ul>
+												
+					<h3>Aviso importante</h3>
+						<p><b>¡Esto no es una competencia!</b> No hay palabras correctas o incorrectas, deberás completar con la palabra que vos creas que va a continuación según el contexto.</p>
+						<p> Tené en cuenta que podés completar con cualquier tipo de palabra, no sólo sustantivos o verbos. Tambien, podes tomarte un rato y volver a entrar y no vas a perder tu progreso.</p>
+
+				</td>
+				<td style="width:50%"> 
+					<div id="instrucciones" align=center style="margin-top:5px;margin-bottom:2px"> 
+						<img src="{% static "sorteo.png" %}" height="350px"> 
+					</div>
+				</td>
+			</table>
+				
+			<div id="boton_sin_preguntas" align=center  style ="margin-top:3%">
+				<form action="javascript:trial_inicio()" align=center>
+					<input id="input_iniciar_trial" class="btn btn-lg btn-primary btn-block" type="submit"  value="Click aquí para Empezar Experimento">
+				</form>	
+			</div>	
+			<br>				
+			<div align=center>
+				¡Gracias por tu participación! 
+				<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
+			</div>
+
+
+			<br>
+		</div>
 
 		<!-- Empiezo a mostrar los textos -->
 		<font face="Georgia, Garamond, Serif" size="4">
@@ -597,26 +597,13 @@ function variables() {
 		</div>
 
 		<!-- Si entra desde movil -->
-		<div class="container" align=left>
-		<div id="formulario_mobile">
+		<div id="formulario_mobile" class="container" align=left>
 			<h3>¡¡Gracias por entrar a nuestro experimento!!</h3>
 			<p>Te agradecemos por entrar. Sin embargo detectamos que estás ingresando desde un dispositivo móvil. 
 			   Este <b>experimento</b> necesita que lo completes sin utilizar el teclado predictivo que tienen los celulares. 
 			   Además necesitamos que los leas cómodamente. Por eso te pedimos que vuelvas a entrar nuevamente desde una computadora.</p>
 			<br>
-<!--
-				<div>
-				 <form action="/bruno/ganadores/" target="_blank">
-					<input id="input_ganadores" class="btn btn-lg btn-trial btn-block" type="submit"  value="Ver Ganadores">
-				 </form>	
-				</div>
--->
 			<p>Consultas y comentarios: <a href="mailto:lena.peroni@gmail.com">lena.peroni@gmail.com</a></p>
-<!--
-			<p>Sitio Web del <a href="http://neuro.org.ar/?q=es">Laboratorio de Neurociencia Integrativa</a></p>
-			<p>O visitanos en <a href="https://facebook.com/neurointegrativa"> Facebook</a> para enterarte de las novedades</p>	
--->
-		</div>
 		</div>
 		
 		<!-- Descanso -->
