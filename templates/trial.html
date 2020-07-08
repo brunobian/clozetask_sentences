@@ -416,17 +416,21 @@ function variables() {
 			<br>
 		</div>
 	{% else %}
-<!--			Margin-top para que todo se muestre por debajo del header    -->
-		<div style="margin-top:120px"> </div>
+		<!-- Margin-top para que todo se muestre por debajo del header    -->
+		<div style="margin-top:120px">
+		</div>
 
-<!--			Margin-top para que nada se muestre en el flahseo    -->
-		<div id="rectangulo" style="margin-top:1000000px"></div>
+		<!-- Margin-top para que nada se muestre en el flahseo    -->
+		<div id="rectangulo" style="margin-top:1000000px">
+		</div>
 		
+		<!-- Pantalla de segundo inicio -->
 		<div id="formulario_segundo_inicio" class="container" align=center style="margin-bottom:30px;">
 			<h1>¡¡Gracias por volver!!</h1>
 			<h4>Te estabamos esperando para que sigas completando oraciones.</h4>
 		</div>
 
+		<!-- Pantalla de preguntas y consentimiento informado -->		
 		<div id="formulario_preguntas"  class="container" align=LEFT style="margin-left:150px;" >		
 			<form id="frmPreguntas" action="javascript:trial_inicio_preguntas()" >
 				<h3>Cuestionario</h3>
@@ -470,6 +474,7 @@ function variables() {
 			</form> 
 		</div>		
 			
+		<!-- Pantalla de instrucciones -->		
 		<div id="formulario_instrucciones" style="margin-left:150px;width:85%">
 			<table style="width:100%">
 				<td style="width:50%"> 
@@ -503,7 +508,8 @@ function variables() {
 			<br>
 			</div>	
 		</div>
-		
+
+		<!-- Pantalla de premios -->		
 		<div id="formulario_premios" style="margin-left:150px;width:85%">
 
 			<table style="width:100%">
@@ -630,13 +636,10 @@ function variables() {
 
 		</div>
 		
-		{%endif%}
-
-
+	{%endif%}
 
 <br>
 <br>
-</div>
     
     
 <div id="cerrar" align="center" class="container" >
@@ -653,6 +656,7 @@ function variables() {
 	 </form>	
 	</div>
 -->
+</div>
 	<br><br>
 <div id="botones_nuevos" style="width:480px">
 <!--
@@ -670,7 +674,6 @@ function variables() {
 		<i class="fa fa-cube"></i> Visitá nuestra web 
 	</a>
 -->
-</div>
 
 </div>
 
