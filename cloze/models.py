@@ -24,7 +24,7 @@ LANGUAGE = (
 		("Fra", 'Francés'),
 		('Ale', 'Aleman'),
 		('Port', 'Portugués'),
-		("Otro", 'Otro')
+		("Otro", 'Otro'),
 		("None", 'Ns/Nc')
 	)
 	
