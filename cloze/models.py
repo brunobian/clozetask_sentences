@@ -25,7 +25,7 @@ LANGUAGE = (
 		('Ale', 'Aleman'),
 		('Port', 'Portugués'),
 		("Otro", 'Otro')
-		
+		("None", 'Ns/Nc')
 	)
 	
 COUNTRIES = (
