@@ -330,6 +330,7 @@ class Subject(models.Model):
 		ts = TrialSequence.objects.all().order_by('id')[ts_num]
 		seq_base1 = json.loads(ts.seq)
 		
+		# (09/07/2020)
 		# Pero tengo que darlas en orden aleatorio. 
 		# Primero las 105 del experimento de Lena 
 		# Despues el resto del experimento de proverbios		
@@ -338,6 +339,11 @@ class Subject(models.Model):
 		random.shuffle(Lena) 
 		random.shuffle(Bruno)
 		seq_base0 = Lena + Bruno
+
+		# (12/07/2020)
+		# Como las oraciones de Lena ya tiene bastantes datos, mezclo todas		
+		random.shuffle(seq_base0)
+		
 		
 		return (ts.id,seq_base0)       
 
