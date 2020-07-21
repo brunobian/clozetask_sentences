@@ -10,10 +10,17 @@
 			$dbPassword = "tusam.vive";
 			$dbName = "morfemas";
 
-			$conn = pg_connect(host=$dbServername, user=$dbUsername, password=$dbPassword, dbname=$dbName);
+			$conn = pg_connect(host=$dbServername, 
+							   user=$dbUsername, 
+							   password=$dbPassword, 
+							   dbname=$dbName);
 
 			if (!$conn) {
 			  echo "An error occurred.\n";
+			  exit;
+			}
+			if ($conn) {
+			  echo "FUNCIONA!.\n";
 			  exit;
 			}
 		
