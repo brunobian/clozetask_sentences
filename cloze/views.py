@@ -7,6 +7,7 @@ from django.template import RequestContext,Context, loader
 import calendar,datetime
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.postgres.search import SearchVector
 from django.shortcuts import render, redirect
 from django.conf import settings
 import re
@@ -194,10 +195,20 @@ def FAQ(request):
 	return HttpResponse(t.render(c))	
 
 def morfemas(request):
+	from simple_search import search_filter
+	from .models import Text
+	q = request.GET
+	
 	t = loader.get_template('morfemas/morfemas.html')
-	c={'request':request}
-	return HttpResponse(t.render(c))	
 
+	search_fields = ['textNumber']
+	query = q['palabra']
+	search = Text.objects.filter(search_filter(search_fields, query))	
+
+	c={'request':request,
+		'search':search}
+		
+	return HttpResponse(t.render(c))	
 
 def subir(request):
 	q = request.GET

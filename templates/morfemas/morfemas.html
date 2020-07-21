@@ -1,49 +1,50 @@
-<!DOCTYPE html> 
-<html> 
-	<head> 
-    <title>Google Spreadsheet Javascript</title> 
-    <script type="text/javascript" src="jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="google-spreadsheet.js"></script>
+{% load static %}
 
-  </head> 
-  <body> 
-    <h1>Google Spreadsheet Javascript</h1>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>MORFEMAS</title>
+		<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+		<link href="{% static "css/font-awesome.css" %}" rel="stylesheet">
+		<link href="{% static "css/bootstrap-social.css" %}" rel="stylesheet">
+		<link href="{% static "css/signin.css" %}" rel="stylesheet">
+	</head>
+	<body id="main_body" class="container">
+    
+		<div id="form_container">
+				<div class="navbar navbar-inverse navbar-static-top fondo" role="navigation"> 
+					<div style="margin-top:5%;margin-bottom:2%;margin-left:10%;margin-right:10%;">
+						<h2 class="form-signin-heading">Diccionario de morfemas (BETA)</h2>
+						<h4>Gracias por utilizar nuestro diccionario de morfemas</h4> 
+						<p>Buscá el morfema (por ahora solo sufijos derivativos) que necesites y obtendrás su frecuencia y las palabras que lo utilizan</p>
+						<p>También podés buscar una determinada palabra y obtener qué sufijo derivativo o pseudosufijo la comforma</p>
+						<br>
+					
+						<form class="form-signin" method="get" >
+							<div style="margin-bottom:1%">
+								<input class="form-control" name="Sufijo" placeholder="Sufijo"> 
+								<input class="btn btn-lg btn-loggin btn-block" style ="margin-bottom:20px" type="submit" value="Buscar por sufijo">
+							</div>
+						</form>
 
-    Here is the most basic usage:
-    <pre id='code'></pre>
+						<form class="form-signin" method="get" >
+							<div style="margin-bottom:1%">
+								<input class="form-control" name="palabra" placeholder="Palabra"> 
+								<input class="btn btn-lg btn-loggin btn-block" style ="margin-bottom:20px" type="submit" value="Buscar por palabra">
+							</div>
+						</form>	
+						
+					</div>
+				</div>
+		</div>	
 
-    And here are the results:
-    <pre id='results'></pre>
+		<div id="form_container">
+				<div class="navbar navbar-inverse navbar-static-top fondo" role="navigation"> 
+					{% search %}
+				</div>
+		</div>	
 
-    <div id='links'>
-      Github URL: <a href='https://github.com/mikeymckay/google-spreadsheet-javascript'>https://github.com/mikeymckay/google-spreadsheet-javascript</a><br/>
-      Source URL for above spreadsheet data: <span id='spreadsheet_url'></span><br/>
-      Try your own spreadsheet (needs to be <a href='https://docs.google.com/support/bin/answer.py?hl=en&answer=47134'>published</a>):<br/>
-      <input style='width:700px' name='url' type='text'></input>
-      <input onclick='document.location = document.location.pathname + "?url="+$("input[name]").val()' type='submit'></input>
-    </div>
-    <iframe width='500' height='300' frameborder='0' ></iframe>
 
-    <script id='script'>
-      localStorage.clear();
-      var sample_url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRHCd31nx8qM2LiAIA-8QW3LeTrhH_NN1By73x_rnShz09yClnew8B26336A5xlvSvC6ly_4WYZ6yyF/pubhtml?gid=0&single=true";
-      var url_parameter = document.location.search.split(/\?url=/)[1]
-      var url = url_parameter || sample_url;
-      var googleSpreadsheet = new GoogleSpreadsheet();
-      googleSpreadsheet.url(url);
-      googleSpreadsheet.load(function(result) {
-        $('#results').html(JSON.stringify(result).replace(/,/g,",\n"));
-      });
-    </script>
-    <script>
-      $('#code').html($('#script').html())
-      $('#spreadsheet_url').html("<a href='"+url+"'>"+url+"</a>");
-      $('#iframe').attr("src",url);
-      $('input[name]').val(url);
-      if (url != sample_url){
-        $("div#links").append("<br/><a href='"+document.location.pathname+"'>Original Sample Spreadsheet</a>")
-      }
-    </script>
-  </body>
+		
+	</body>
 </html>
-
