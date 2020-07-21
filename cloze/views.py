@@ -189,7 +189,7 @@ def ganadores(request):
 	return HttpResponse(t.render(c))	
 
 def FAQ(request):
-	t = loader.get_template('FAQ.html')
+	t = loader.get_template('FAQ.php')
 	c={'request':request}
 	return HttpResponse(t.render(c))	
 
