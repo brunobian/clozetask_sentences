@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     #'django.contrib.admindocs',
     'bootstrap3',
     'jquery',
+    'simple_search',
 
     #'debug_toolbar',
 
