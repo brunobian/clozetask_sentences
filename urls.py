@@ -16,7 +16,7 @@ urlpatterns = [
 	url(r'^ganadores/$', views.ganadores, name = "ganadores"),
 	url(r'^FAQ/$', views.FAQ, name = "FAQ"),
 	url(r'^morfemas/$', views.morfemas, name = "morfemas"),
-	url(r'^search/$', views.search, name = "search"),
+	url(r'^morfemas/search/$', views.search, name = "search"),
 
 	url(r'^bajar_sujetos/$', views.bajar_sujetos, name = "bajar_sujetos"),
 	url(r'^$', views.home, name = "home"),
