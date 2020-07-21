@@ -12,7 +12,6 @@
 	<body id="main_body" class="container">
     
 		<div id="form_container">
-			<form class="form-signin" method="get" >
 				<div class="navbar navbar-inverse navbar-static-top fondo" role="navigation"> 
 					<div style="margin-top:5%;margin-bottom:2%;margin-left:10%;margin-right:10%;">
 						<h2 class="form-signin-heading">Diccionario de morfemas (BETA)</h2>
@@ -20,18 +19,25 @@
 						<p>Buscá el morfema (por ahora solo sufijos derivativos) que necesites y obtendrás su frecuencia y las palabras que lo utilizan</p>
 						<p>También podés buscar una determinada palabra y obtener qué sufijo derivativo o pseudosufijo la comforma</p>
 						<br>
-						<div style="margin-bottom:1%">
-							<input class="form-control" name="Sufijo" placeholder="Sufijo"> 
-							<input class="btn btn-lg btn-loggin btn-block" style ="margin-bottom:20px" type="submit" value="Buscar por sufijo">
-						</div>
+					
+						<form class="form-signin" method="get" >
 
-						<div style="margin-bottom:1%">
-							<input class="form-control" name="palabra" placeholder="Palabra"> 
-							<input class="btn btn-lg btn-loggin btn-block" style ="margin-bottom:20px" type="submit" value="Buscar por palabra">
-						</div>
+							<div style="margin-bottom:1%">
+								<input class="form-control" name="Sufijo" placeholder="Sufijo"> 
+								<input class="btn btn-lg btn-loggin btn-block" style ="margin-bottom:20px" type="submit" value="Buscar por sufijo">
+							</div>
+						</form>
+						<form class="form-signin" method="get" >
+
+							<div style="margin-bottom:1%">
+								<input class="form-control" name="palabra" placeholder="Palabra"> 
+								<input class="btn btn-lg btn-loggin btn-block" style ="margin-bottom:20px" type="submit" value="Buscar por palabra">
+							</div>
+						</form>	
+						
 					</div>
 				</div>
-			</form>	
+			
 		</div>	
 
 		<?php
