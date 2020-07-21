@@ -8,8 +8,10 @@
 		<link href="{% static "css/font-awesome.css" %}" rel="stylesheet">
 		<link href="{% static "css/bootstrap-social.css" %}" rel="stylesheet">
 		<link href="{% static "css/signin.css" %}" rel="stylesheet">
+
+		
 	</head>
-	<body id="main_body" class="container">
+	<body id="main_body" class="container" onload="variables()">
     
 		<div id="form_container">
 				<div class="navbar navbar-inverse navbar-static-top fondo" role="navigation"> 
@@ -20,7 +22,7 @@
 						<p>También podés buscar una determinada palabra y obtener qué sufijo derivativo o pseudosufijo la comforma</p>
 						<br>
 						
-						<p> Este seria el resultado {% search %}</p>
+						<p> Este seria el resultado {{ search }}</p>
 					
 						
 					</div>
