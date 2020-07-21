@@ -4,13 +4,30 @@
 		<title>MORFEMAS</title>
 	</head>
 	<body>
-		<div style="margin-top:10%, align:center ">
-			<input type="palabras" name="Morfema" placeholder="insertá el morfema a buscar" required> 
-		</div>
-		<?php
-			include_once 'db.php'
-		?>
-<!--
+    <div id="form_container">
+        <form class="form-signin" method="get" >
+			<div class="navbar navbar-inverse navbar-static-top fondo" role="navigation"> 
+				<div style="margin-top:5%;margin-bottom:2%;margin-left:10%;margin-right:10%;">
+					<h2 class="form-signin-heading">Diccionario de morfemas (BETA)</h2>
+					<h4>Gracias por utilizar nuestro diccionario de morfemas</h4> 
+					<p>Buscá el morfema (por ahora solo sufijos derivativos) que necesites y obtendrás su frecuencia y las palabras que lo utilizan</p>
+					<p>También podés buscar una determinada palabra y obtener qué sufijo derivativo o pseudosufijo la comforma</p>
+					<br>
+					<div style="margin-bottom:1%">
+						<input class="form-control" name="Sufijo" placeholder="Sufijo"> 
+					</div>
+					<input class="btn btn-lg btn-loggin btn-block" style ="margin-top:20px" type="submit" value="Buscar por sufijo">
+
+					<div style="margin-bottom:1%">
+						<input class="form-control" name="palabra" placeholder="Palabra"> 
+					</div>
+					
+					<input class="btn btn-lg btn-loggin btn-block" style ="margin-top:20px" type="submit" value="Buscar por palabra">
+				</div>
+			</div>
+        </form>	
+    </div>	
+
 		<?php
 			$dbServername = "localhost";
 			$dbUsername = "brunobian";
@@ -45,7 +62,7 @@
 			  echo $row['frecuencia'];
 			}			
 		?>
--->
+
 		
 	</body>
 </html>
