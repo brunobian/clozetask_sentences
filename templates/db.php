@@ -11,3 +11,7 @@ if (!$conn) {
   echo "An error occurred.\n";
   exit;
 }
+
+<?php
+	include_once 'db.php'
+?>
