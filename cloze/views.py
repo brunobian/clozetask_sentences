@@ -39,10 +39,10 @@ def search(request):
 	keys=[i for i in q.dict().keys()]
 	k = keys[0]
 	
-	search = Subject.objects.filter(email__contains='brunobian')	
+	search = Subject.objects.filter(email__contains=q[k])	
 
 	c={'request':request,
-		'search':q[k]}
+		'search':search}
 		
 	return HttpResponse(t.render(c))
 
