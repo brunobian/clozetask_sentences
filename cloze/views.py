@@ -40,7 +40,7 @@ def search(request):
 	search = Subject.objects.filter(email__contains='brunobian')	
 
 	c={'request':request,
-		'search':q.dict().keys()}
+		'search':q.dict().keys()[0]}
 		
 	return HttpResponse(t.render(c))
 
