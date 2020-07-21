@@ -22,12 +22,12 @@
 						<br>
 						<div style="margin-bottom:1%">
 							<input class="form-control" name="Sufijo" placeholder="Sufijo"> 
-							<input class="btn btn-lg btn-loggin btn-block" style ="margin-top:20px" type="submit" value="Buscar por sufijo">
+							<input class="btn btn-lg btn-loggin btn-block" style ="margin-bottom:20px" type="submit" value="Buscar por sufijo">
 						</div>
 
 						<div style="margin-bottom:1%">
 							<input class="form-control" name="palabra" placeholder="Palabra"> 
-							<input class="btn btn-lg btn-loggin btn-block" style ="margin-top:20px" type="submit" value="Buscar por palabra">
+							<input class="btn btn-lg btn-loggin btn-block" style ="margin-bottom:20px" type="submit" value="Buscar por palabra">
 						</div>
 					</div>
 				</div>
