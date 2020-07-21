@@ -189,9 +189,15 @@ def ganadores(request):
 	return HttpResponse(t.render(c))	
 
 def FAQ(request):
-	t = loader.get_template('FAQ.php')
+	t = loader.get_template('FAQ.html')
 	c={'request':request}
 	return HttpResponse(t.render(c))	
+
+def morfemas(request):
+	t = loader.get_template('morfemas/morfemas.html')
+	c={'request':request}
+	return HttpResponse(t.render(c))	
+
 
 def subir(request):
 	q = request.GET

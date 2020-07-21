@@ -15,6 +15,7 @@ urlpatterns = [
 	url(r'^bajar_todo/$', views.bajar_todo, name = "bajar_todo"),
 	url(r'^ganadores/$', views.ganadores, name = "ganadores"),
 	url(r'^FAQ/$', views.FAQ, name = "FAQ"),
+	url(r'^morfemas/$', views.morfemas, name = "morfemas"),
 	url(r'^bajar_sujetos/$', views.bajar_sujetos, name = "bajar_sujetos"),
 	url(r'^$', views.home, name = "home"),
 	# url(r'^prueba/', include('prueba.foo.urls')),
