@@ -26,24 +26,21 @@ def home(request):
     return HttpResponse(t.render(c))
 
 def morfemas(request):
-
 	t = loader.get_template('morfemas/morfemas.html')
-
-	search = Subject.objects.filter(email__contains='brunobian')	
-
-	c={'request':request,
-		'search':search}
-		
+	c={'request':request}
+	
 	return HttpResponse(t.render(c))
 
 def search(request):
 
 	t = loader.get_template('morfemas/search.html')
+	
+	q = request.GET
 
 	search = Subject.objects.filter(email__contains='brunobian')	
 
 	c={'request':request,
-		'search':search}
+		'search':q}
 		
 	return HttpResponse(t.render(c))
 
