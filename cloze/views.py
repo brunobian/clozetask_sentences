@@ -36,6 +36,17 @@ def morfemas(request):
 		
 	return HttpResponse(t.render(c))
 
+def search(request):
+
+	t = loader.get_template('morfemas/search.html')
+
+	search = Subject.objects.filter(email__contains='brunobian')	
+
+	c={'request':request,
+		'search':search}
+		
+	return HttpResponse(t.render(c))
+
 def trial(request):
 	
 	email_get = request.GET.get('email', '')
