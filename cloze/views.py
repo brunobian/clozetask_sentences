@@ -25,6 +25,17 @@ def home(request):
 
     return HttpResponse(t.render(c))
 
+def morfemas(request):
+
+	t = loader.get_template('morfemas/morfemas.html')
+
+	search = Subject.objects.filter(email__contains='brunobian')	
+
+	c={'request':request,
+		'search':search}
+		
+	return HttpResponse(t.render(c))
+
 def trial(request):
 	
 	email_get = request.GET.get('email', '')
@@ -192,22 +203,6 @@ def ganadores(request):
 def FAQ(request):
 	t = loader.get_template('FAQ.html')
 	c={'request':request}
-	return HttpResponse(t.render(c))	
-
-def morfemas(request):
-
-	q = request.GET
-	t = loader.get_template('morfemas/morfemas.html')
-
-
-
-	search_fields = ['textNumber']
-	query = q['palabra']
-	search = 	Subject.objects.filter(email__contains='brunobian')	
-
-	c={'request':request,
-		'search':search}
-		
 	return HttpResponse(t.render(c))	
 
 def subir(request):
