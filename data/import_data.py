@@ -6,7 +6,7 @@ f = io.open('textos.csv', encoding='latin-1')
 
 #f = open('textos.csv','r')
 
-database='oraciones_2020'
+database='oraciones_2020_new'
 host='localhost'
 user='cloze'
 password='23571113'
