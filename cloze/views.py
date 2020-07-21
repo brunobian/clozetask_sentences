@@ -8,6 +8,10 @@ import calendar,datetime
 from django.utils import timezone
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.postgres.search import SearchVector
+
+from simple_search import search_filter
+from .models import Text
+	
 from django.shortcuts import render, redirect
 from django.conf import settings
 import re
@@ -195,8 +199,7 @@ def FAQ(request):
 	return HttpResponse(t.render(c))	
 
 def morfemas(request):
-	from simple_search import search_filter
-	from .models import Text
+
 	q = request.GET
 	
 	t = loader.get_template('morfemas/morfemas.html')
