@@ -36,11 +36,13 @@ def search(request):
 	t = loader.get_template('morfemas/search.html')
 	
 	q = request.GET
+	keys=[i for i in q.dict().keys()]
+	k = keys[0]
 	
 	search = Subject.objects.filter(email__contains='brunobian')	
 
 	c={'request':request,
-		'search':q.dict().keys()[0]}
+		'search':k}
 		
 	return HttpResponse(t.render(c))
 
