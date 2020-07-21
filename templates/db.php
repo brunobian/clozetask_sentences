@@ -12,6 +12,4 @@ if (!$conn) {
   exit;
 }
 
-<?php
-	include_once 'db.php'
-?>
+
