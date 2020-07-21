@@ -3,7 +3,7 @@
 	<head>
 		<title>MORFEMAS</title>
 	</head>
-	<body>
+	<body id="main_body" class="container">
     <div id="form_container">
         <form class="form-signin" method="get" >
 			<div class="navbar navbar-inverse navbar-static-top fondo" role="navigation"> 
@@ -15,14 +15,13 @@
 					<br>
 					<div style="margin-bottom:1%">
 						<input class="form-control" name="Sufijo" placeholder="Sufijo"> 
+						<input class="btn btn-lg btn-loggin btn-block" style ="margin-top:20px" type="submit" value="Buscar por sufijo">
 					</div>
-					<input class="btn btn-lg btn-loggin btn-block" style ="margin-top:20px" type="submit" value="Buscar por sufijo">
 
 					<div style="margin-bottom:1%">
 						<input class="form-control" name="palabra" placeholder="Palabra"> 
+						<input class="btn btn-lg btn-loggin btn-block" style ="margin-top:20px" type="submit" value="Buscar por palabra">
 					</div>
-					
-					<input class="btn btn-lg btn-loggin btn-block" style ="margin-top:20px" type="submit" value="Buscar por palabra">
 				</div>
 			</div>
         </form>	
