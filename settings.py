@@ -93,6 +93,7 @@ INSTALLED_APPS = (
 
     # My APPS
     'cloze',
+    'simple_search'
 )
 
 # A sample logging configuration. The only tangible logging
