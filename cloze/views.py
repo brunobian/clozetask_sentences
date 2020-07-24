@@ -298,6 +298,7 @@ def bajar_todo(request):
         line_prefix = "'" + str(t.id) + "','" + str(s.id) + "','" + str(s.email) + "','" + str(seq_num) + "','" + str(to.id) + "','" + str(te.textClass) + "','" + str(te.textNumber) + "','" + str(ep) + "','"
         line_suffix = "','" + str(s.age) + "'"
         
+        email = s.email
         pals = json.loads(t.words)
         c = 0
         for p,pt in pals:
