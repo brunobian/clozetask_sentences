@@ -21,7 +21,6 @@
   <defs
      id="defs4">
     <linearGradient
-       inkscape:collect="always"
        id="linearGradient4322"
        osb:paint="gradient">
       <stop
@@ -86,11 +85,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="1222.4988"
-     inkscape:cy="-793.96011"
+     inkscape:zoom="0.35"
+     inkscape:cx="1033.4736"
+     inkscape:cy="-519.46913"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g4460"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1056"
@@ -833,13 +832,13 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:STIXSizeFourSym;-inkscape-font-specification:STIXSizeFourSym;text-align:center;text-anchor:middle;fill:#080304;fill-opacity:1" /></text>
     </g>
     <rect
-       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.77081156;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2.02736449;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
        id="rect4458"
-       width="1492.9347"
-       height="1028.2645"
-       x="594.00507"
-       y="1220.0829"
-       ry="38.529346"
+       width="1957.3483"
+       height="1028.0079"
+       x="361.79825"
+       y="1220.2112"
+       ry="38.519733"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200" />
     <g
@@ -882,9 +881,9 @@
            id="tspan4313-3-7-9-0" /><tspan
            id="tspan4383"
            sodipodi:role="line"
-           x="1309.2654"
+           x="1293.0399"
            y="1580.8464"
-           style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-family:Raleway;-inkscape-font-specification:'Raleway Heavy Italic';text-align:center;text-anchor:middle;fill:#1e1e1e;fill-opacity:1">PRIMER </tspan><tspan
+           style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-family:Raleway;-inkscape-font-specification:'Raleway Heavy Italic';text-align:center;text-anchor:middle;fill:#1e1e1e;fill-opacity:1">SEGUNDO</tspan><tspan
            id="tspan4387"
            sodipodi:role="line"
            x="1293.0399"
@@ -927,6 +926,16 @@
          transform="matrix(0.99843171,0.05598329,-0.05598329,0.99843171,0,0)"
          inkscape:export-xdpi="200"
          inkscape:export-ydpi="200" />
-    </g>
+      <flowRoot
+         xml:space="preserve"
+         id="flowRoot4281"
+         style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:125%;letter-spacing:0px;word-spacing:0px"><flowRegion
+           id="flowRegion4283"><rect
+             id="rect4285"
+             width="2297.1428"
+             height="1251.4286"
+             x="260"
+             y="1140.9336" /></flowRegion><flowPara
+           id="flowPara4287"></flowPara></flowRoot>    </g>
   </g>
 </svg>
