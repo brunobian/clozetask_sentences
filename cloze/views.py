@@ -275,43 +275,43 @@ def bajar_todo(request):
     for t in qs[int(request.GET.get('desde', 0)):int(request.GET.get('hasta', 100))]:
         #print datetime.datetime.now()
         s = t.subject
-        to = t.trialOpt
-        
-        if s.sequence_number==None:
-            seq = sorted(json.loads(s.experiment_sequence))
-            filtered_ts = filter(lambda x: sorted(json.loads(x.seq)) == seq,trial_seqs)
-            seq_num = filtered_ts[0].id
-        else:
-            seq_num = s.sequence_number
-        
-        te = to.text
-        teb = re.sub('[,|.|:|;|\']+','',te.body).split()
-        mw = json.loads(to.missing_words)
-               
-        epoch = timezone.make_aware(datetime.datetime.utcfromtimestamp(0), timezone.get_default_timezone())
-        #print t.initial_time
-        #print epoch
-        delta = t.initial_time - epoch 
-        ep = delta.total_seconds()*1000 + 3600 * 1000 * 3 # GMT-3 correction
+        if  not s.email == 'spam@spam.com':
+	        to = t.trialOpt
+	        
+	        if s.sequence_number==None:
+	            seq = sorted(json.loads(s.experiment_sequence))
+	            filtered_ts = filter(lambda x: sorted(json.loads(x.seq)) == seq,trial_seqs)
+	            seq_num = filtered_ts[0].id
+	        else:
+	            seq_num = s.sequence_number
+	        
+	        te = to.text
+	        teb = re.sub('[,|.|:|;|\']+','',te.body).split()
+	        mw = json.loads(to.missing_words)
+	               
+	        epoch = timezone.make_aware(datetime.datetime.utcfromtimestamp(0), timezone.get_default_timezone())
+	        #print t.initial_time
+	        #print epoch
+	        delta = t.initial_time - epoch 
+	        ep = delta.total_seconds()*1000 + 3600 * 1000 * 3 # GMT-3 correction
 
-        #print datetime.datetime.now()
-        line_prefix = "'" + str(t.id) + "','" + str(s.id) + "','" + str(s.email) + "','" + str(seq_num) + "','" + str(to.id) + "','" + str(te.textClass) + "','" + str(te.textNumber) + "','" + str(ep) + "','"
-        line_suffix = "','" + str(s.age) + "'"
-        
-        email = s.email
-        pals = json.loads(t.words)
-        c = 0
-        for p,pt in pals:
-            #p_limpia = p.replace(',', '').replace('.', '').replace(';', '').replace(':', '').replace("'", "")
-            p_limpia = re.sub('[,|.|:|;|\']+','',p)
-            #pal_original = te.body.split()[mw[c]].replace(',', '').replace('.', '').replace(';', '').replace(':', '').replace("'", "")
-            pal_original = teb[mw[c]]
+	        #print datetime.datetime.now()
+	        line_prefix = "'" + str(t.id) + "','" + str(s.id) + "','" + str(s.email) + "','" + str(seq_num) + "','" + str(to.id) + "','" + str(te.textClass) + "','" + str(te.textNumber) + "','" + str(ep) + "','"
+	        line_suffix = "','" + str(s.age) + "'"
+	        
+	        pals = json.loads(t.words)
+	        c = 0
+	        for p,pt in pals:
+	            #p_limpia = p.replace(',', '').replace('.', '').replace(';', '').replace(':', '').replace("'", "")
+	            p_limpia = re.sub('[,|.|:|;|\']+','',p)
+	            #pal_original = te.body.split()[mw[c]].replace(',', '').replace('.', '').replace(';', '').replace(':', '').replace("'", "")
+	            pal_original = teb[mw[c]]
 
-            #line = "'" + str(t.id) + "','" + str(s.id) + "','" + str(s.email) + "','" + str(seq_num) + "','" + str(to.id) + "','" + str(te.textClass) + "','" + str(te.textNumber) + "','" + str(ep) + "','" + p_limpia + "','" + pal_original + "','" + pt + "','" + str(c) + "','" + str(s.age) + "'" 
-            line = line_prefix + p_limpia + "','" + pal_original + "','" + pt + "','" + str(c) + line_suffix
-            #csv += (line.encode('iso-8859-1', 'ignore') + '\n')
-            os.write(tf_csv,line.encode('iso-8859-1', 'ignore') + '\n'.encode('iso-8859-1', 'ignore'))
-            c = c + 1
+	            #line = "'" + str(t.id) + "','" + str(s.id) + "','" + str(s.email) + "','" + str(seq_num) + "','" + str(to.id) + "','" + str(te.textClass) + "','" + str(te.textNumber) + "','" + str(ep) + "','" + p_limpia + "','" + pal_original + "','" + pt + "','" + str(c) + "','" + str(s.age) + "'" 
+	            line = line_prefix + p_limpia + "','" + pal_original + "','" + pt + "','" + str(c) + line_suffix
+	            #csv += (line.encode('iso-8859-1', 'ignore') + '\n')
+	            os.write(tf_csv,line.encode('iso-8859-1', 'ignore') + '\n'.encode('iso-8859-1', 'ignore'))
+	            c = c + 1
     
         #print datetime.datetime.now()
     # generate the file
